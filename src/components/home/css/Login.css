@@ -1,0 +1,34 @@
+.text-logo {
+    font-size: 16px;
+    padding: 25px;
+    color: #1359a1;
+    font-weight: bold;
+}
+
+.login-row {
+    height: 650px;
+}
+
+.log-in {
+    border: 2px rgb(102, 10, 163) solid;
+    border-radius: 8px;
+}
+
+.eyorn-label {
+    color: #1359a1;
+}
+
+.input-container {
+    font-size: 12px;
+    background-color: rgb(184, 183, 187);
+    border: 0px solid;
+    border-radius: 8px;
+    height: 35px;
+}
+
+/* .eyorn {
+    background: linear-gradient(185deg, rgb(245, 88, 237), rgb(108, 6, 148));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+} */
