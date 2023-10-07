@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
+import "./home/css/Login.css";
 
 export let Signup = () => {
   let navigate = useNavigate();
@@ -8,57 +9,60 @@ export let Signup = () => {
   return (
     <div className="container-fluid">
       <div className="row justify-content-center ">
-        <div className="sign-up-side col-md-6">
-          <div className="row">
-            <b className="m-3">E-YORD AIRLINE</b>
+        <div id="form-side" className="sign-up-side col-md-6">
+          <div className=" row p-3">
+            <div className="text-logo mt-3 mx-3">E-YORD AIRLINE</div>
+            <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
           </div>
 
-          <form className=" row g-3 m-5">
+          <form className="form-container row m-5">
             <div className="h3 create-account">Create account</div>
-            <div className="row mt-3">
+            <div className="row ">
               <div className="col-6">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_Container form-control"
                   placeholder="First name"
                 />
               </div>
               <div class="col-6">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_Container form-control"
                   placeholder="Last name"
                 />
               </div>
             </div>
-            <div className="row mt-3">
+            <div className="row ">
               <div class="col">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_Container form-control"
                   placeholder="Username"
                 />
               </div>
             </div>
-            <div className="row mt-3">
+            <div className="row">
               <div class="col">
                 <input
                   type="password"
-                  class="form-control"
+                  class="input_Container form-control"
                   placeholder="Password"
                 />
               </div>
             </div>
-            <div className="row mt-3">
+            <div className="row">
               <p className="terms">
-                <input type="checkbox" className="check-box"/><span className="span-text">I agree to the term of service and
-                privacy policy</span>
+                <input type="checkbox" className="check-box" />
+                <span className="span-text">
+                  I agree to the term of service and privacy policy
+                </span>
               </p>
             </div>
             <div className="row">
               <div class="col mt-1">
                 <button
-                  class="w-100 btn btn-primary"
+                  class="signup-btn w-100 btn btn-primary"
                   onClick={() => navigate("/")}
                 >
                   Sign up
@@ -66,16 +70,34 @@ export let Signup = () => {
               </div>
             </div>
             <div className="row mt-4">
-              <div className="row text-center">
-                <p>- Or Sign Up With -</p>
+              <div className="row text-center justify-content-center ">
+                <p className="col-6">- Or Sign Up With -</p>
+                <div className="col-8">
+                  <Link
+                    to={"https://www.google.com/account/about/"}
+                    class="google-icon bi bi-google mx-2"
+                    style={{ fontSize: "35px" }}
+                    /* onClick={() => navigate("/")} */
+                  ></Link>
+                  <i
+                    class="bi bi-facebook mx-2"
+                    style={{ fontSize: "35px" }}
+                  ></i>
+                  <i class="bi bi-github mx-2" style={{ fontSize: "35px" }}></i>
+                </div>
+                <div className="col-8">
+                  <p>
+                    Already have an account? <Link to={"https://www.google.com/account/about/"}>Log in</Link>
+                  </p>
+                </div>
               </div>
-              <div className="col"></div>
             </div>
           </form>
         </div>
-        <div className="pic-side border col-md-6 d-md-block d-none d-sm-none">
-          pic side
-        </div>
+        <div
+          id="pic-side"
+          className="pic-side border col-md-6 d-md-block d-none d-sm-none"
+        ></div>
       </div>
     </div>
   );

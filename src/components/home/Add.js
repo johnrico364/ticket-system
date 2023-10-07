@@ -35,7 +35,7 @@ export let Add = () => {
               <p className="display-2">{type}</p>
           </div>
           <div className="col-md-7 mt-4">
-            <button onClick={() => navigate("/home/list")} className="btn">Book</button>
+            <button onClick={() => navigate("/home/list")} className="btn btn-primary ">Book</button>
           </div>
         </div>
       </div>
