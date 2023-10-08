@@ -77,17 +77,21 @@ export let Signup = () => {
                     to={"https://www.google.com/account/about/"}
                     class="google-icon bi bi-google mx-2"
                     style={{ fontSize: "35px" }}
-                    /* onClick={() => navigate("/")} */
                   ></Link>
-                  <i
-                    class="bi bi-facebook mx-2"
+                  <Link
+                    to={"https://www.facebook.com/"}
+                    class="fb-icon bi bi-facebook mx-2"
                     style={{ fontSize: "35px" }}
-                  ></i>
-                  <i class="bi bi-github mx-2" style={{ fontSize: "35px" }}></i>
+                  ></Link>
+                  <Link
+                    to={"https://github.com/"}
+                    class="gitbub-icon bi bi-github mx-2"
+                    style={{ fontSize: "35px" }}
+                  ></Link>
                 </div>
                 <div className="col-8">
                   <p>
-                    Already have an account? <Link to={"https://www.google.com/account/about/"}>Log in</Link>
+                    Already have an account? <Link to={"/ "}>Log in</Link>
                   </p>
                 </div>
               </div>
