@@ -2,15 +2,32 @@
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 0.5px;
-    color: #1359A1;
+    color: #EAEAEA;
 }
-.nav-logo-2{
+
+.nav-logo-2 {
     font-size: 10.7px;
-    color: #1359A1;
+    color: #EAEAEA;
     letter-spacing: 0.4px;
 }
 
-.boot-icons{
+.navigation-links{
+    color: #EAEAEA;
+}
+.navigation-links:hover{
+    color: #EAEAEA;
+}
+
+.boot-icons {
     font-size: 22px;
-    color: #1359A1;
+    color: #EAEAEA;
+}
+
+.container-background {
+    background-image: url(C:\Users\Admin\Desktop\ticketsystem\src\components\photos\CCLEX.jpg);
+    height: 78vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
