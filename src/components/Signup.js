@@ -76,17 +76,14 @@ export let Signup = () => {
                   <Link
                     to={"https://www.google.com/account/about/"}
                     class="google-icon bi bi-google mx-2"
-                    style={{ fontSize: "35px" }}
                   ></Link>
                   <Link
                     to={"https://www.facebook.com/"}
                     class="fb-icon bi bi-facebook mx-2"
-                    style={{ fontSize: "35px" }}
                   ></Link>
                   <Link
                     to={"https://github.com/"}
                     class="gitbub-icon bi bi-github mx-2"
-                    style={{ fontSize: "35px" }}
                   ></Link>
                 </div>
                 <div className="col-8">
