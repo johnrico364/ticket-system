@@ -40,6 +40,6 @@
 }
 
 #pic-side{
-    background-image: url("C:\Users\Admin\Desktop\ticketsystem\src\components\photos\airplane.jpg");
+    background-image: url(/src/components/photos/airplane.jpg);
     background-size: cover;
 }

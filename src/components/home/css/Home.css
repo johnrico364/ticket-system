@@ -25,7 +25,7 @@
 }
 
 .container-background {
-    background-image: url(C:\Users\Admin\Desktop\ticketsystem\src\components\photos\CCLEX.jpg);
+    background-image: url(/src/components/photos/CCLEX.jpg);
     height: 78vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -42,7 +42,7 @@
     height: 22vh;
 }
 .footer-picture{
-    background-image: url(C:\Users\Admin\Desktop\ticketsystem\src\components\photos\illustration.jpg);
+    background-image: url(/src/components/photos/illustration.jpg);
     background-size: contain;
     background-repeat: no-repeat;
 }
