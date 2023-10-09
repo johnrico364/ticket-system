@@ -7,7 +7,7 @@ export let Home = () => {
   return (
     <div className="container-fluid container-background">
       <div className="row">
-      <div className="col-12">
+        <div className="col-12 ">
           <div className="row justify-content-end mx-5">
             <div className="col-6 text-end mt-2">
               <i class="boot-icons bi bi-facebook mx-2"></i>
@@ -17,7 +17,7 @@ export let Home = () => {
           </div>
           <div className="border"></div>
         </div>
-        <div className="col-12">
+        <div className="">
           <Navbar expand="lg">
             <Navbar.Brand href="/">
               <div className="nav-logo mx-2">E-YORN AIRLINES</div>
@@ -32,16 +32,16 @@ export let Home = () => {
                 <Nav.Link className="navigation-links" href="add">
                   Book
                 </Nav.Link>
-                <Nav.Link className="navigation-links" href=" ">
+                <Nav.Link className="navigation-links" href=":profile">
                   Manage
                 </Nav.Link>
-                <Nav.Link className="navigation-links" href="List">
+                <Nav.Link className="navigation-links" href="list">
                   Dashboard
                 </Nav.Link>
-                <Nav.Link className="navigation-links" href=" ">
+                <Nav.Link className="navigation-links" href="explore">
                   Explore
                 </Nav.Link>
-                <Nav.Link className="navigation-links" href="List">
+                <Nav.Link className="navigation-links" href="aboutus">
                   About
                 </Nav.Link>
                 <Nav.Link className="navigation-links ms-md-5" href="/">
@@ -55,8 +55,22 @@ export let Home = () => {
             </Navbar.Collapse>
           </Navbar>
         </div>
+        <Outlet />
       </div>
-      <Outlet />
+      <div className="ui-row row justify-content-center">
+        <div className="col-md-5">
+          <h4>Why Everyone Flies</h4>
+          <p style={{ fontSize: "12px" }}>
+            E-yorn operates the widest network in the Philippines, offering
+            flights to Manila, Cebu, Davao, Iloilo, Clark, and more! With
+            flexible bookings, low fares, and global best safety practices, the
+            airline continues to boost travel confidence for ecery Juan by
+            providing connectivity to key cities in Asia, Australia, and Middle
+            East.
+          </p>
+        </div>
+        <div className="col-md-4 footer-picture"></div>
+      </div>
     </div>
   );
 };

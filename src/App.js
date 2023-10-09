@@ -8,6 +8,8 @@ import { Signup } from "./components/Signup";
 import { Add } from "./components/home/Add";
 import { List } from "./components/home/List";
 import { Aboutus } from "./components/home/Aboutus";
+import { PersonalList } from "./components/home/Personal-list";
+import {Explore} from "./components/home/Explore";
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
 
           <Route path="/home" element={<Home />}>
             <Route path="add" element={<Add />} />
+            <Route path=":profile" element={<PersonalList/>}/>
             <Route path="list" element={<List />} />
-            <Route path="about-us" element={<Aboutus />} />
+            <Route path="explore" element={<Explore/>} />
+            <Route path="aboutus" element={<Aboutus />} />
           </Route>
 
           <Route path="/signup" element={<Signup />} />

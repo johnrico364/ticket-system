@@ -11,10 +11,11 @@
     letter-spacing: 0.4px;
 }
 
-.navigation-links{
+.navigation-links {
     color: #EAEAEA;
 }
-.navigation-links:hover{
+
+.navigation-links:hover {
     color: #EAEAEA;
 }
 
@@ -30,4 +31,18 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 
+}
+
+.ui-row {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    height: 22vh;
+}
+.footer-picture{
+    background-image: url(C:\Users\Admin\Desktop\ticketsystem\src\components\photos\illustration.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
