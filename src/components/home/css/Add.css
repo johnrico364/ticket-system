@@ -1,7 +1,29 @@
-.label{
-    font-size: 20px;
+.parent {
+    position: relative;
+    height: 55vh;
 }
-.select{
-    margin-left: 20px;
-    height: 35px;
+
+.child {
+    position: absolute;
+    bottom: 5vh;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.add-form-container{
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+.small-label{
+    font-size: 10px;
+}
+.add-input{
+    font-size: 12px;
+    border: 0px solid;
+    background: rgba(255, 255, 255, 0.0);
 }

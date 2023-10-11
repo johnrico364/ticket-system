@@ -57,6 +57,7 @@ export let Home = () => {
         </div>
         <Outlet />
       </div>
+      
       <div className="ui-row row justify-content-center">
         <div className="col-md-5">
           <h4>Why Everyone Flies</h4>
@@ -64,7 +65,7 @@ export let Home = () => {
             E-yorn operates the widest network in the Philippines, offering
             flights to Manila, Cebu, Davao, Iloilo, Clark, and more! With
             flexible bookings, low fares, and global best safety practices, the
-            airline continues to boost travel confidence for ecery Juan by
+            airline continues to boost travel confidence for every Juan by
             providing connectivity to key cities in Asia, Australia, and Middle
             East.
           </p>
