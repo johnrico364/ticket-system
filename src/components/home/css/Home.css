@@ -33,16 +33,3 @@
 
 }
 
-.ui-row {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    height: 22vh;
-}
-.footer-picture{
-    background-image: url(/src/components/photos/illustration.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-}
