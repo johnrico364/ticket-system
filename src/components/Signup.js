@@ -2,9 +2,30 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
 import "./home/css/Login.css";
+import { useState } from "react";
+import { signupAPI } from "../services/Axios";
 
 export let Signup = () => {
   let navigate = useNavigate();
+  let [firstname, setFirstname] = useState('');
+  let [lastname, setLastname] = useState('');
+  let [username, setUsername] = useState('');
+  let [password, setPassword] = useState('');
+
+  let handleSignup = async () =>{
+    let newUser = {
+      FIRSTNAME : 'Naruto',
+      LASTNAME : 'Uzumake',
+      PASSWORD : 'John2004',
+      EMAIL : 'ja@gmail.com',
+      USERNAME : 'naruto'
+    }
+
+    await signupAPI(newUser);
+    //end
+    //navigate("/");
+  }
+
 
   return (
     <div className="container-fluid">
@@ -63,7 +84,7 @@ export let Signup = () => {
               <div class="col mt-1">
                 <button
                   class="signup-btn w-100 btn btn-primary"
-                  onClick={() => navigate("/")}
+                  onClick={handleSignup}
                 >
                   Sign up
                 </button>
