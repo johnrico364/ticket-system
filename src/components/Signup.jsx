@@ -3,29 +3,31 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
 import "./home/css/Login.css";
 import { useState } from "react";
-import { signupAPI } from "../services/Axios";
+import { getAPI, postAPI, signupAPI } from "../services/Axios";
+import axios from "axios";
 
 export let Signup = () => {
   let navigate = useNavigate();
-  let [firstname, setFirstname] = useState('');
-  let [lastname, setLastname] = useState('');
-  let [username, setUsername] = useState('');
-  let [password, setPassword] = useState('');
+  let [firstname, setFirstname] = useState("");
+  let [lastname, setLastname] = useState("");
+  let [username, setUsername] = useState("");
+  let [password, setPassword] = useState("");
 
-  let handleSignup = async () =>{
-    let newUser = {
-      FIRSTNAME : 'Naruto',
-      LASTNAME : 'Uzumake',
-      PASSWORD : 'John2004',
-      EMAIL : 'ja@gmail.com',
-      USERNAME : 'naruto'
+  let [fruits, setFruits] = useState([]);
+
+  let handleSignup = async () => {
+    let getData = await getAPI();
+    setFruits(getData);
+  };
+
+  let handlePost = async () =>{
+    let data ={
+      name : 'Strawberry',
+      color : 'Violet'
     }
 
-    await signupAPI(newUser);
-    //end
-    //navigate("/");
+    await postAPI(data);
   }
-
 
   return (
     <div className="container-fluid">
@@ -36,7 +38,7 @@ export let Signup = () => {
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
           </div>
 
-          <form className="form-container row m-5">
+          <div className="form-container row m-5">
             <div className="h3 create-account">Create account</div>
             <div className="row ">
               <div className="col-6">
@@ -114,12 +116,20 @@ export let Signup = () => {
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
         <div
           id="pic-side"
           className="pic-side border col-md-6 d-md-block d-none d-sm-none"
-        ></div>
+        >
+          {fruits.map((prutas)=>{
+                return <div className=" text-white ">
+                  <h3>{prutas.name}</h3>
+                  <i>{prutas.color}</i>
+                </div>
+              })}
+          <button className="btn btn-warning" onClick={handlePost}>Post</button>
+        </div>
       </div>
     </div>
   );
