@@ -19,7 +19,17 @@ export let Signup = () => {
   let handleSignup = async () => {
     let getData = await getAPI();
     setFruits(getData);
+
+    let data = {
+      Fname : firstname,
+      Lname : lastname,
+      Uname : username,
+      Pass : password 
+    }
+    
   };
+
+
 
   let handlePost = async () =>{
     let data ={

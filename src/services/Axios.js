@@ -23,3 +23,11 @@ export let postAPI = async (newPost) => {
     console.log(err);
   }
 };
+
+export let signupAPI = (newPost) =>{
+  try{
+    
+  }catch(err){
+    console.log(err);
+  }
+}
