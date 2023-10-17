@@ -12,6 +12,7 @@ export let Signup = () => {
   let [lastname, setLastname] = useState("");
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
+  let [privacy, setPrivacy] = useState(false);
 
   let [fruits, setFruits] = useState([]);
 
@@ -28,7 +29,7 @@ export let Signup = () => {
 
     await postAPI(data);
   }
-
+  
   return (
     <div className="container-fluid">
       <div className="row justify-content-center ">
@@ -46,6 +47,7 @@ export let Signup = () => {
                   type="text"
                   class="input_Container form-control"
                   placeholder="First name"
+                  onChange={(e) => setFirstname(e.target.value)}
                 />
               </div>
               <div class="col-6">
@@ -53,6 +55,7 @@ export let Signup = () => {
                   type="text"
                   class="input_Container form-control"
                   placeholder="Last name"
+                  onChange={(e) => setLastname(e.target.value)}
                 />
               </div>
             </div>
@@ -62,6 +65,7 @@ export let Signup = () => {
                   type="text"
                   class="input_Container form-control"
                   placeholder="Username"
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
             </div>
@@ -71,12 +75,13 @@ export let Signup = () => {
                   type="password"
                   class="input_Container form-control"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
             <div className="row">
               <p className="terms">
-                <input type="checkbox" className="check-box" />
+                <input type="checkbox" className="check-box" onChange={()=>setPrivacy(!privacy)}/>
                 <span className="span-text">
                   I agree to the term of service and privacy policy
                 </span>
