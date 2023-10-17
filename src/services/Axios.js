@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//SIGN UP PAGE
 export let getAPI = async () => {
   try {
     let { data } = await axios.get(
@@ -24,10 +25,27 @@ export let postAPI = async (newPost) => {
   }
 };
 
-export let signupAPI = (newPost) =>{
-  try{
-    
-  }catch(err){
+export let signupAPI = async (newPost) => {
+  try {
+    let { data } = await axios.post(
+      "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/signup",
+      newPost
+    );
+    return data;
+  } catch (err) {
+    console.log(err.response.data.message);
+    alert(err.response.data.message);
+    return;
+  }
+};
+
+//LOG IN PAGE
+export let getSample = async () => {
+  try {
+    let { data } = await axios.get("");
+    console.log(data);
+    return data;
+  } catch (err) {
     console.log(err);
   }
-}
+};

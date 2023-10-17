@@ -17,29 +17,28 @@ export let Signup = () => {
   let [fruits, setFruits] = useState([]);
 
   let handleSignup = async () => {
-    let getData = await getAPI();
-    setFruits(getData);
+    /* let getData = await getAPI();
+    setFruits(getData); */
 
     let data = {
-      Fname : firstname,
-      Lname : lastname,
-      Uname : username,
-      Pass : password 
-    }
-    
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      password: password,
+    };
+
+    await signupAPI(data);
   };
 
-
-
-  let handlePost = async () =>{
-    let data ={
-      name : 'Strawberry',
-      color : 'Violet'
-    }
+  let handlePost = async () => {
+    let data = {
+      name: "Dragon Fruit",
+      color: "Red",
+    };
 
     await postAPI(data);
-  }
-  
+  };
+
   return (
     <div className="container-fluid">
       <div className="row justify-content-center ">
@@ -91,7 +90,11 @@ export let Signup = () => {
             </div>
             <div className="row">
               <p className="terms">
-                <input type="checkbox" className="check-box" onChange={()=>setPrivacy(!privacy)}/>
+                <input
+                  type="checkbox"
+                  className="check-box"
+                  onChange={() => setPrivacy(!privacy)}
+                />
                 <span className="span-text">
                   I agree to the term of service and privacy policy
                 </span>
@@ -137,13 +140,17 @@ export let Signup = () => {
           id="pic-side"
           className="pic-side border col-md-6 d-md-block d-none d-sm-none"
         >
-          {fruits.map((prutas)=>{
-                return <div className=" text-white ">
-                  <h3>{prutas.name}</h3>
-                  <i>{prutas.color}</i>
-                </div>
-              })}
-          <button className="btn btn-warning" onClick={handlePost}>Post</button>
+          {fruits.map((prutas) => {
+            return (
+              <div className=" text-white ">
+                <h3>{prutas.name}</h3>
+                <i>{prutas.color}</i>
+              </div>
+            );
+          })}
+          <button className="btn btn-warning" onClick={handlePost}>
+            Post
+          </button>
         </div>
       </div>
     </div>
