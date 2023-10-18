@@ -29,7 +29,7 @@ export let Login = () => {
                   <input
                     className="input-container form-control"
                     type="text"
-                    placeholder="Email Address:"
+                    placeholder="Username:"
                   />
                 </div>
               </div>

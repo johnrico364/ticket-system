@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
 import "./home/css/Login.css";
 import { useState } from "react";
-import { getAPI, postAPI, signupAPI } from "../services/Axios";
 import axios from "axios";
 
 export let Signup = () => {
@@ -14,13 +13,26 @@ export let Signup = () => {
   let [password, setPassword] = useState("");
   let [privacy, setPrivacy] = useState(false);
 
-  let [fruits, setFruits] = useState([]);
+  let [response, setResponse] = useState("");
+
+  let signupAPI = async (newPost) => {
+    let status = false;
+    try {
+      await axios.post(
+        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/signup",
+        newPost
+      );
+      status = true;
+      return status;
+    } catch (err) {
+      console.log(err.response.data.message);
+      setResponse(err.response.data.message);
+      return;
+    }
+  };
 
   let handleSignup = async () => {
-    /* let getData = await getAPI();
-    setFruits(getData); */
-
-    if (
+    /* if (
       firstname === "" ||
       lastname === "" ||
       username === "" ||
@@ -29,7 +41,9 @@ export let Signup = () => {
     ) {
       alert("Please fill all fields");
       return;
-    }
+    } */
+
+
     let data = {
       firstname: firstname,
       lastname: lastname,
@@ -39,20 +53,7 @@ export let Signup = () => {
 
     let getStatus = await signupAPI(data);
 
-    getStatus && navigate('/');
-  };
-
-
-
-
-  let handlePost = async () => {
-    let data = {
-      name: "Dragon Fruit",
-      color: "Red",
-    };
-
-    await postAPI(data);
-
+    getStatus && navigate("/");
   };
 
   return (
@@ -103,19 +104,20 @@ export let Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              <span className="error-response">{response}</span>
             </div>
             <div className="row">
               <p className="terms">
                 <input
+                  
                   type="checkbox"
                   className="check-box"
                   onChange={() => setPrivacy(!privacy)}
                 />
                 <span className="span-text">
-                  I agree to the term of service and privacy policy
+                  I agree to the term of service and privacy policy {"(optional)"}
                 </span>
               </p>
-              {}
             </div>
             <div className="row">
               <div class="col mt-1">
@@ -156,19 +158,7 @@ export let Signup = () => {
         <div
           id="pic-side"
           className="pic-side border col-md-6 d-md-block d-none d-sm-none"
-        >
-          {fruits.map((prutas) => {
-            return (
-              <div className=" text-white ">
-                <h3>{prutas.name}</h3>
-                <i>{prutas.color}</i>
-              </div>
-            );
-          })}
-          <button className="btn btn-warning" onClick={handlePost}>
-            Post
-          </button>
-        </div>
+        ></div>
       </div>
     </div>
   );
