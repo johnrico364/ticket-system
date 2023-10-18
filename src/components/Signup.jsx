@@ -20,6 +20,16 @@ export let Signup = () => {
     /* let getData = await getAPI();
     setFruits(getData); */
 
+    if (
+      firstname === "" ||
+      lastname === "" ||
+      username === "" ||
+      password === "" ||
+      !privacy
+    ) {
+      alert("Please fill all fields");
+      return;
+    }
     let data = {
       firstname: firstname,
       lastname: lastname,
@@ -28,7 +38,11 @@ export let Signup = () => {
     };
 
     await signupAPI(data);
+    
   };
+
+
+
 
   let handlePost = async () => {
     let data = {
@@ -37,6 +51,7 @@ export let Signup = () => {
     };
 
     await postAPI(data);
+
   };
 
   return (
