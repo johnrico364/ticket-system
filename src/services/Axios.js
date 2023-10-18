@@ -28,15 +28,17 @@ export let postAPI = async (newPost) => {
 };
 
 export let signupAPI = async (newPost) => {
+  let status = false;
   try {
     let { data } = await axios.post(
       "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/signup",
       newPost
     );
-    return data;
+    status = true;
+    return status;
   } catch (err) {
     console.log(err.response.data.message);
-    alert(err.response.data.message);
+    alert(err.response.data.message)
     return;
   }
 };

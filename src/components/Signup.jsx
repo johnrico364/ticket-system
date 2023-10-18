@@ -37,8 +37,9 @@ export let Signup = () => {
       password: password,
     };
 
-    await signupAPI(data);
-    
+    let getStatus = await signupAPI(data);
+
+    getStatus && navigate('/');
   };
 
 
@@ -114,6 +115,7 @@ export let Signup = () => {
                   I agree to the term of service and privacy policy
                 </span>
               </p>
+              {}
             </div>
             <div className="row">
               <div class="col mt-1">
