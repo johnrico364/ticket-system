@@ -18,16 +18,17 @@ export let Login = () => {
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/${username}/${password}`
       );
       setUserdata(data.data[0]);
-      console.log(data.data[0]);
+      // console.log(data.data[0]);
+      return data.data[0];
     } catch (err) {
       setResponse(err.response.data.message);
     }
   };
 
   let handleLogin = async () => {
-    await loginAPI();
+    let dataget = await loginAPI();
 
-    if (username === userdata.USER_NAME && password === userdata.PASSWORD) {
+    if (username === dataget?.USER_NAME && password === dataget?.PASSWORD) {
       navigate("/home/add");
     }
     setResponse("Press log in again to confirm");
@@ -86,8 +87,6 @@ export let Login = () => {
                     <Link className="Create-Link" to={"/signup"}>
                       Create Account?
                     </Link>
-                    {username}
-                    {password}
                   </div>
                 </div>
               </div>
