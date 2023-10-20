@@ -11,7 +11,6 @@ export let Signup = () => {
   let [lastname, setLastname] = useState("");
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
-  let [privacy, setPrivacy] = useState(false);
 
   let [response, setResponse] = useState("");
 
@@ -32,17 +31,15 @@ export let Signup = () => {
   };
 
   let handleSignup = async () => {
-    /* if (
+    if (
       firstname === "" ||
       lastname === "" ||
       username === "" ||
-      password === "" ||
-      !privacy
+      password === ""
     ) {
-      alert("Please fill all fields");
+      setResponse("Please fill all fields");
       return;
-    } */
-
+    }
 
     let data = {
       firstname: firstname,
@@ -109,13 +106,12 @@ export let Signup = () => {
             <div className="row">
               <p className="terms">
                 <input
-                  
                   type="checkbox"
                   className="check-box"
-                  onChange={() => setPrivacy(!privacy)}
                 />
                 <span className="span-text">
-                  I agree to the term of service and privacy policy {"(optional)"}
+                  I agree to the term of service and privacy policy{" "}
+                  {"(optional)"}
                 </span>
               </p>
             </div>

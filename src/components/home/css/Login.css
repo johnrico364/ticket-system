@@ -43,3 +43,9 @@
     background-image: url(/src/components/photos/airplane.jpg);
     background-size: cover;
 }
+
+.error-response{
+    font-weight: bold;
+    font-size: 13px;
+    color: #ec0a0a;
+}
