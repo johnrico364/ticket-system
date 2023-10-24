@@ -28,10 +28,14 @@ export let Login = () => {
   let handleLogin = async () => {
     let dataget = await loginAPI();
 
+    if (username === "" || password === ""){
+      setResponse("Fill up all the container");
+      return;
+    }
     if (username === dataget?.USER_NAME && password === dataget?.PASSWORD) {
       navigate("/home/add");
     }
-    setResponse("Press log in again to confirm");
+    // setResponse("Press log in again to confirm");
   };
 
   return (
@@ -50,7 +54,6 @@ export let Login = () => {
           <div className="form-container row g-3 m-5 justify-content-center align-content-center">
             <div className="col-10">
               <div className="h3 eyorn-label">Log in to E-YORN</div>
-              <span className="error-response">{response}</span>
               <div className="row mt-3">
                 <div className="col">
                   <input
@@ -71,6 +74,7 @@ export let Login = () => {
                   />
                 </div>
               </div>
+              <span className="error-response">{response}</span>
               <div className="row mt-3">
                 <div className="col ">
                   <button
