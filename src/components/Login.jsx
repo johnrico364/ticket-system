@@ -1,15 +1,16 @@
 import "./home/css/Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { AppContext } from "../App";
 
 export let Login = () => {
   let navigate = useNavigate();
+  let { userdata, setUserdata } = useContext(AppContext);
+
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
-  let [userdata, setUserdata] = useState({});
-
   let [response, setResponse] = useState("");
 
   let loginAPI = async () => {
@@ -17,8 +18,6 @@ export let Login = () => {
       let { data } = await axios.get(
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/${username}/${password}`
       );
-      setUserdata(data.data[0]);
-      // console.log(data.data[0]);
       return data.data[0];
     } catch (err) {
       setResponse(err.response.data.message);
@@ -27,15 +26,16 @@ export let Login = () => {
 
   let handleLogin = async () => {
     let dataget = await loginAPI();
+    setUserdata(dataget);
 
-    if (username === "" || password === ""){
+    if (username === "" || password === "") {
       setResponse("Fill up all the container");
       return;
     }
     if (username === dataget?.USER_NAME && password === dataget?.PASSWORD) {
-      navigate("/home/add");
+      // navigate(`/home/:profile`);
     }
-    // setResponse("Press log in again to confirm");
+    // setResponse("Press again to continue...");
   };
 
   return (
@@ -45,10 +45,11 @@ export let Login = () => {
           id="pic-side"
           className="col-md-6 d-md-block d-none d-sm-none"
         ></div>
-        <div id="form-side" className="col-md-6">
+        <div className="col-md-6">
           <div className="row p-3">
             <div className="text-logo mt-3 mx-3">E-YORN AIRLINE</div>
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
+            <div>{userdata?.USER_NAME}</div>
           </div>
 
           <div className="form-container row g-3 m-5 justify-content-center align-content-center">
@@ -78,7 +79,10 @@ export let Login = () => {
               <div className="row mt-3">
                 <div className="col ">
                   <button
-                    onClick={handleLogin}
+                    onClick={() =>{
+                      handleLogin();
+                      
+                    }}
                     className="login-btn w-100 btn btn-primary"
                   >
                     Log in

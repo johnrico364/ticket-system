@@ -18,12 +18,13 @@
     font-weight: 900;
     letter-spacing: 0.5px;
 }
-.form-control::placeholder{
-    font-size: 13px;
-}
+
 .input-container{
     background-color: #EAEAEA;
     height: 50px;
+}
+.input-container::placeholder{
+    font-size: 13px;
 }
 
 .login-btn{
