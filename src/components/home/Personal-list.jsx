@@ -5,20 +5,15 @@ import { useContext, useEffect, useState } from "react";
 
 export let PersonalList = () => {
   let { profile } = useParams();
-  let { userdata, sample } = useContext(AppContext);
+  let { userdata } = useContext(AppContext);
 
-  let [personaldata, Setpersonaldata] = useState({});
-
-  useEffect(() => {
-    console.log(userdata);
-    Setpersonaldata(userdata)
-  }, []);
   return (
     <div className="container-fluid form-background">
       <div className="row">
-        <div>Sample</div>
-        <div>username: "{personaldata.USER_NAME}"</div>
-        <div>{sample}</div>
+        Details:
+        <h3>username: "{userdata.USER_NAME}"</h3>
+        <p>{userdata.FIRST_NAME} {userdata.LAST_NAME}</p>
+        <i>{userdata.ID}</i>
         <div></div>
       </div>
     </div>

@@ -20,11 +20,10 @@ function App() {
   let client = new QueryClient();
 
   let [userdata, setUserdata] = useState({});
-  let [sample, setsample] = useState("Sample user");
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ userdata, setUserdata, sample }}>
+      <AppContext.Provider value={{ userdata, setUserdata}}>
         <QueryClientProvider client={client}>
           <Router>
             <Routes>

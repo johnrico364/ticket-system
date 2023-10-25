@@ -2,11 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
 import "./home/css/Login.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { AppContext } from "../App";
 
 export let Signup = () => {
   let navigate = useNavigate();
+  let {userdata} = useContext(AppContext);
+
   let [firstname, setFirstname] = useState("");
   let [lastname, setLastname] = useState("");
   let [username, setUsername] = useState("");
@@ -60,6 +63,7 @@ export let Signup = () => {
           <div className=" row p-3">
             <div className="text-logo mt-3 mx-3">E-YORD AIRLINE</div>
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
+            <div>{userdata?.USER_NAME}</div>
           </div>
 
           <div className="form-container row m-5">

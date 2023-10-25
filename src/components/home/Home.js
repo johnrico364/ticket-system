@@ -1,9 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/Home.css";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+import { useContext } from "react";
+import { AppContext } from "../../App";
 
 export let Home = () => {
+  let {userdata} = useContext(AppContext);
+
   return (
     <div className="container-fluid container-background">
       <div className="row">
@@ -19,7 +23,7 @@ export let Home = () => {
         </div>
         <div className="">
           <Navbar expand="lg">
-            <Navbar.Brand href="/">
+            <Navbar.Brand>
               <div className="nav-logo mx-2">E-YORN AIRLINES</div>
               <div className="nav-logo-2 mx-2">Fly with the friendly skies</div>
             </Navbar.Brand>
@@ -29,21 +33,21 @@ export let Home = () => {
             />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link className="navigation-links" href="add">
+                <Link className="navigation-links nav-link" to="add">
                   Book
-                </Nav.Link>
-                <Nav.Link className="navigation-links" href=":profile">
+                </Link>
+                <Link className="navigation-links nav-link" to={`${userdata.ID}`}>
                   Manage
-                </Nav.Link>
-                <Nav.Link className="navigation-links" href="list">
+                </Link>
+                <Link className="navigation-links nav-link " to="list">
                   Dashboard
-                </Nav.Link>
-                <Nav.Link className="navigation-links" href="explore">
+                </Link>
+                <Link className="navigation-links nav-link" to="explore">
                   Explore
-                </Nav.Link>
-                <Nav.Link className="navigation-links" href="aboutus">
+                </Link>
+                <Link className="navigation-links nav-link" to="aboutus">
                   About
-                </Nav.Link>
+                </Link>
                 <Nav.Link className="navigation-links ms-md-5" href="/">
                   <i
                     class=" bi bi-person-circle mx-1"

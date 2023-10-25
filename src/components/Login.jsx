@@ -18,6 +18,7 @@ export let Login = () => {
       let { data } = await axios.get(
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/${username}/${password}`
       );
+      setUserdata(data.data[0]);
       return data.data[0];
     } catch (err) {
       setResponse(err.response.data.message);
@@ -25,15 +26,15 @@ export let Login = () => {
   };
 
   let handleLogin = async () => {
-    let dataget = await loginAPI();
-    setUserdata(dataget);
+    let getdata = await loginAPI();
+    // setUserdata(dataget);
 
     if (username === "" || password === "") {
       setResponse("Fill up all the container");
       return;
     }
-    if (username === dataget?.USER_NAME && password === dataget?.PASSWORD) {
-      // navigate(`/home/:profile`);
+    if (username === getdata?.USER_NAME && password === getdata?.PASSWORD) {
+      navigate(`/home/${getdata?.ID}`);
     }
     // setResponse("Press again to continue...");
   };
@@ -79,10 +80,7 @@ export let Login = () => {
               <div className="row mt-3">
                 <div className="col ">
                   <button
-                    onClick={() =>{
-                      handleLogin();
-                      
-                    }}
+                    onClick={handleLogin}
                     className="login-btn w-100 btn btn-primary"
                   >
                     Log in
