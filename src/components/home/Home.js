@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AppContext } from "../../App";
 
 export let Home = () => {
-  let {userdata} = useContext(AppContext);
+  let { userdata } = useContext(AppContext);
 
   return (
     <div className="container-fluid container-background">
@@ -36,7 +36,10 @@ export let Home = () => {
                 <Link className="navigation-links nav-link" to="add">
                   Book
                 </Link>
-                <Link className="navigation-links nav-link" to={`${userdata.ID}`}>
+                <Link
+                  className="navigation-links nav-link"
+                  to={`${userdata.ID}`}
+                >
                   Manage
                 </Link>
                 <Link className="navigation-links nav-link " to="list">
@@ -48,9 +51,11 @@ export let Home = () => {
                 <Link className="navigation-links nav-link" to="aboutus">
                   About
                 </Link>
-                <Nav.Link className="navigation-links ms-md-5" href="/">
+              </Nav>
+              <Nav className="w-100 justify-content-end  mx-sm-5">
+                <Nav.Link className="navigation-links mx-sm-3 " href="/">
                   <i
-                    class=" bi bi-person-circle mx-1"
+                    class="bi bi-person-circle mx-1"
                     style={{ fontSize: "15px" }}
                   ></i>
                   Sign out
@@ -61,7 +66,6 @@ export let Home = () => {
         </div>
         <Outlet />
       </div>
-      
     </div>
   );
 };

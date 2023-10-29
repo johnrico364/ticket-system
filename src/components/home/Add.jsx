@@ -15,7 +15,7 @@ export let Add = () => {
     setDestination(e.target.value);
   };
 
-  let handleDepart = (e) => {
+  let handleDepart = (e) => { //mga alert validation, need to display in UI
     let inputDate = e.target.value;
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -38,7 +38,7 @@ export let Add = () => {
       alert("invalid day");
       return;
     }
-
+    //Code above, is validation para di siya kapili ug date na before sa current date
     setDepart(formattedDate);
   };
 

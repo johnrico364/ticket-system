@@ -1,0 +1,19 @@
+.explore-background{
+    height: 83vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+.top-big-text{
+    font-size: 22px;
+}
+.top-small-text{
+    font-size: 11px;
+    margin-top: 0px;
+}
+
+.destination-container{
+    height: 58vh;
+}
