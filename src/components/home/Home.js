@@ -53,11 +53,8 @@ export let Home = () => {
                 </Link>
               </Nav>
               <Nav className="w-100 justify-content-end  mx-sm-5">
-                <Nav.Link className="navigation-links mx-sm-3 " href="/">
-                  <i
-                    class="bi bi-person-circle mx-1"
-                    style={{ fontSize: "15px" }}
-                  ></i>
+                <Nav.Link className="navigation-links mx-sm-3 d-flex align-items-center " href="/">
+                  <i class="bi bi-person-circle mx-1 boot-icons "></i>
                   Sign out
                 </Nav.Link>
               </Nav>
