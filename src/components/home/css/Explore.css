@@ -1,19 +1,76 @@
-.explore-background{
+.explore-background {
     height: 83vh;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
-.top-big-text{
+
+.top-big-text {
     font-size: 22px;
 }
-.top-small-text{
+
+.top-small-text {
     font-size: 11px;
     margin-top: 0px;
 }
 
-.destination-container{
-    height: 58vh;
+.destination-container {
+    height: 57vh;
 }
+
+/* Pictures in container */
+.background-picture {
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    letter-spacing: 2px;
+    box-shadow: 12px 12px 20px -12px rgba(0, 0, 0, 3.35);
+}
+.background-picture:hover{
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.el-nido-container {
+    background-image: url("/src/components/photos/explore/El Nido Palawan.jpg");
+}
+.baguio-container{
+    background-image: url("/src/components/photos/explore/Baguio.jpg");
+}
+.boracay-container{
+    background-image: url("/src/components/photos/explore/Boracay.jpg");
+}
+.puerto-pricesa-container{
+    background-image: url("/src/components/photos/explore/Puerto Princesa.jpg");
+}
+.zamboanga-hermosa{
+    background-image: url("/src/components/photos/explore/Zamboanga Hermosa.jpg");
+}
+.whale-watching{
+    background-image: url("/src/components/photos/explore/Whale Shark Watching.jpg");
+}
+
+/* text inside the container (small) */
+.picture-text-large {
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.picture-text-small {
+    font-size: 9px;
+    margin-left: 8px;
+    margin-bottom: 7px;
+}
+
+/* Hover the picture animation */
+@keyframes scale-up-center {
+    0% {
+      transform: scale(1);
+      text-align: left;
+    }
+    100% {
+      transform: scale(1.1);
+      text-align: center;
+    }
+  }

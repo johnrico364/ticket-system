@@ -69,7 +69,7 @@ export let Add = () => {
                       <option>Baguio</option>
                       <option>Boracay (Caticlan)</option>
                       <option>Cagayan de Oro</option>
-                      <option>Cebu City</option>
+                      <option>Cebu</option>
                       <option>Cotabato</option>
                       <option>Davao</option>
                       <option>Dumaguete</option>
@@ -96,7 +96,7 @@ export let Add = () => {
                       <option>Baguio</option>
                       <option>Boracay (Caticlan)</option>
                       <option>Cagayan de Oro</option>
-                      <option>Cebu City</option>
+                      <option>Cebu</option>
                       <option>Cotabato</option>
                       <option>Davao</option>
                       <option>Dumaguete</option>

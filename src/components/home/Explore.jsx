@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "./css/Explore.css";
 
-export let Explore = () => {
+export const Explore = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="container-fluid explore-background">
@@ -12,21 +15,51 @@ export let Explore = () => {
             </div>
           </div>
         </div>
-        <div className="destination-container row ms-2 me-5">
-          <div className="col-3">
+        <div className="row destination-container mt-md-4 ">
+          <div className="col-md-3 col-6">
             <div className="row h-100 ">
-              <div className="col-12 bg-primary my-1">sd</div>
-              <div className="col-12 bg-warning my-1">sd</div>
+              <div className="col-12 px-md-2">
+                <div className="ms-2 el-nido-container background-picture h-100 text-white d-flex flex-column">
+                  <div className="mt-auto picture-text-large">El Nido</div>
+                  <div className="picture-text-small">Palawan</div>
+                </div>
+              </div>
+              <div className="col-12 mt-3 px-md-2">
+                <div className="ms-2 baguio-container background-picture h-100 text-white d-flex flex-column ">
+                  <div className="mt-auto picture-text-large">Baguio</div>
+                  <div className="picture-text-small">Benguet</div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-3 bg-success my-1">
-            sadsa
+          <div className="px-md-2 col-md-3 col-6 ">
+            <div className="boracay-container background-picture h-100 text-white d-flex flex-column">
+              <div className="mt-auto picture-text-large">Boracay</div>
+              <div className="picture-text-small">Aklan</div>
+            </div>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <div className="row me-2 h-100">
-              <div className="col-12 bg-danger my-1">sd</div>
-              <div className="col-4 bg-secondary my-1">sds</div>
-              <div className="col-8 bg-info my-1 ">df</div>
+              <div className="col-md-12 col-6 px-md-2">
+                <div className="puerto-pricesa-container background-picture h-100 text-white d-flex flex-column ms-md-0 ms-2 mt-md-0 mt-2">
+                  <div className="mt-auto picture-text-large">
+                    Puerto Princesa
+                  </div>
+                  <div className="picture-text-small">Palawan</div>
+                </div>
+              </div>
+              <div className="col-md-4 col-6 px-md-2 mt-md-3">
+                <div className="zamboanga-hermosa background-picture h-100 text-white d-flex flex-column mt-md-0 mt-2">
+                  <div className="mt-auto picture-text-large">Fiesta Pilar</div>
+                  <div className="picture-text-small">Zamboanga</div>
+                </div>
+              </div>
+              <div className="col-md-8 col-6 px-md-2 mt-md-3">
+                <div className="whale-watching background-picture h-100 text-white d-flex flex-column ms-md-0 ms-2 mt-md-0 mt-3">
+                <div className="mt-auto picture-text-large">Whale Shark Watching</div>
+                  <div className="picture-text-small">Cebu</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
