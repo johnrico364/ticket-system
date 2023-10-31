@@ -43,8 +43,7 @@ export let Login = () => {
     <div className="container-fluid">
       <div className="row p-2 justify-content-center login-row">
         <div
-          id="pic-side"
-          className="col-md-6 d-md-block d-none d-sm-none"
+          className="pic-side pic-side-login col-md-6 d-md-block d-none d-sm-none"
         ></div>
         <div className="col-md-6">
           <div className="row p-3">

@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
-import "./home/css/Login.css";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { AppContext } from "../App";
@@ -156,8 +155,7 @@ export let Signup = () => {
           </div>
         </div>
         <div
-          id="pic-side"
-          className="pic-side border col-md-6 d-md-block d-none d-sm-none"
+          className="pic-side pic-side-signup border col-md-6 d-md-block d-none d-sm-none"
         ></div>
       </div>
     </div>

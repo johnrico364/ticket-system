@@ -26,7 +26,6 @@
 .input-container::placeholder{
     font-size: 13px;
 }
-
 .login-btn{
     letter-spacing: 0.5px;
     font-size: 18px;
@@ -34,15 +33,17 @@
     background-color: #1359A1;
 }
 
-
 .Create-Link {
     letter-spacing: 0.5px;
     font-size: 14px;
 }
 
-#pic-side{
+.pic-side{
     background-image: url(/src/components/photos/airplane.jpg);
     background-size: cover;
+}
+.pic-side-login{
+    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .error-response{
@@ -50,3 +51,15 @@
     font-size: 13px;
     color: #ec0a0a;
 }
+
+/* Animation */
+@keyframes slide-in-right {
+    0% {
+      transform: translateX(1000px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
