@@ -45,7 +45,7 @@
   font-size: 35px;
 }
 
-.pic-side-signup{
+.pic-side-signup, .sign-up-side{
   animation: slide-in-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 

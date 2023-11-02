@@ -7,7 +7,7 @@ import { AppContext } from "../App";
 
 export let Signup = () => {
   let navigate = useNavigate();
-  let {userdata} = useContext(AppContext);
+  let { userdata } = useContext(AppContext);
 
   let [firstname, setFirstname] = useState("");
   let [lastname, setLastname] = useState("");
@@ -17,14 +17,13 @@ export let Signup = () => {
   let [response, setResponse] = useState("");
 
   let signupAPI = async (newPost) => {
-    let status = false;
     try {
       await axios.post(
         "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/signup",
         newPost
       );
-      status = true;
-      return status;
+
+      return true;
     } catch (err) {
       console.log(err.response.data.message);
       setResponse(err.response.data.message);
@@ -49,7 +48,6 @@ export let Signup = () => {
       username: username,
       password: password,
     };
-
     let getStatus = await signupAPI(data);
 
     getStatus && navigate("/");
@@ -58,7 +56,7 @@ export let Signup = () => {
   return (
     <div className="container-fluid">
       <div className="row justify-content-center ">
-        <div id="form-side" className="sign-up-side col-md-6">
+        <div className="sign-up-side col-md-6">
           <div className=" row p-3">
             <div className="text-logo mt-3 mx-3">E-YORD AIRLINE</div>
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
@@ -108,10 +106,7 @@ export let Signup = () => {
             </div>
             <div className="row">
               <p className="terms">
-                <input
-                  type="checkbox"
-                  className="check-box"
-                />
+                <input type="checkbox" className="check-box" />
                 <span className="span-text">
                   I agree to the term of service and privacy policy{" "}
                   {"(optional)"}
@@ -154,9 +149,7 @@ export let Signup = () => {
             </div>
           </div>
         </div>
-        <div
-          className="pic-side pic-side-signup border col-md-6 d-md-block d-none d-sm-none"
-        ></div>
+        <div className="pic-side pic-side-signup border col-md-6 d-md-block d-none d-sm-none"></div>
       </div>
     </div>
   );

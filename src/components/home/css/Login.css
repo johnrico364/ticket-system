@@ -42,8 +42,8 @@
     background-image: url(/src/components/photos/airplane.jpg);
     background-size: cover;
 }
-.pic-side-login{
-    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.pic-side-login, .login-side{
+    animation: slide-in-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .error-response{

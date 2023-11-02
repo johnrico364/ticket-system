@@ -19,33 +19,36 @@ export let Login = () => {
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/${username}/${password}`
       );
       setUserdata(data.data[0]);
-      return data.data[0];
+      // console.log(userdata);
+      return true;
     } catch (err) {
       setResponse(err.response.data.message);
+      return false;
     }
   };
 
   let handleLogin = async () => {
     let getdata = await loginAPI();
+    console.log(getdata);
     // setUserdata(dataget);
 
     if (username === "" || password === "") {
       setResponse("Fill up all the container");
       return;
     }
-    if (username === getdata?.USER_NAME && password === getdata?.PASSWORD) {
-      navigate(`/home/${getdata?.ID}`);
-    }
+
+    getdata && navigate(`/home/${getdata?.ID}`);
+
+    // navigate(`/home/${getdata?.ID}`);
+
     // setResponse("Press again to continue...");
   };
 
   return (
     <div className="container-fluid">
       <div className="row p-2 justify-content-center login-row">
-        <div
-          className="pic-side pic-side-login col-md-6 d-md-block d-none d-sm-none"
-        ></div>
-        <div className="col-md-6">
+        <div className="pic-side pic-side-login col-md-6 d-md-block d-none d-sm-none"></div>
+        <div className="login-side col-md-6">
           <div className="row p-3">
             <div className="text-logo mt-3 mx-3">E-YORN AIRLINE</div>
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
