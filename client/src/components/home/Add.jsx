@@ -1,12 +1,24 @@
 import "./css/Add.css";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../App";
+import axios from "axios";
 
 export let Add = () => {
+  const { userdata } = useContext(AppContext);
+
   let [origin, setOrigin] = useState("");
   let [destination, setDestination] = useState("");
   let [depart, setDepart] = useState("");
   let [classSeat, setClassSeat] = useState("");
+
+  const ticketAPI = async (newPost) => {
+    try {
+      await axios.post("", newPost);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   let handleOrigin = (e) => {
     setOrigin(e.target.value);
@@ -15,7 +27,8 @@ export let Add = () => {
     setDestination(e.target.value);
   };
 
-  let handleDepart = (e) => { //mga alert validation, need to display in UI
+  let handleDepart = (e) => {
+    //mga alert validation, need to display in UI
     let inputDate = e.target.value;
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -34,7 +47,7 @@ export let Add = () => {
       alert("invalid month");
       return;
     }
-    if(month == mm && day <= dd){
+    if (month == mm && day <= dd) {
       alert("invalid day");
       return;
     }
@@ -50,7 +63,7 @@ export let Add = () => {
     <div>
       <div className="container">
         <p className="text-warning">
-          {origin} || {destination} || {depart} -- {classSeat}
+          {origin} || {destination} || {depart} -- {classSeat} === {userdata.ID}
         </p>
         <div className="row parent justify-content-center ">
           <div className="col-12 child">

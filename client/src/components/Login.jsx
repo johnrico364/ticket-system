@@ -16,7 +16,7 @@ export let Login = () => {
   let loginAPI = async () => {
     try {
       let { data } = await axios.get(
-        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/${username}/${password}`
+        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/login/${username}/${password}`
       );
       setUserdata(data.data[0]);
       // console.log(userdata);
