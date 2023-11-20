@@ -57,7 +57,6 @@ export let PersonalList = () => {
               {/* Ari na mag .map */}
               <div className="overflow-auto  ticket-profile-container">
                 {data.data?.map((ticket) => {
-                  console.log(ticket)
                   return (
                     <div className="ms-1 table-values row mt-1 mb-3 me-3">
                       <div className="col-5 d-flex align-items-center ">
