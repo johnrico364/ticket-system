@@ -37,11 +37,7 @@ export let Login = () => {
       return;
     }
 
-    getdata && navigate(`/home/${getdata?.ID}`);
-
-    // navigate(`/home/${getdata?.ID}`);
-
-    // setResponse("Press again to continue...");
+    getdata && navigate(`/home/profile`);
   };
 
   return (

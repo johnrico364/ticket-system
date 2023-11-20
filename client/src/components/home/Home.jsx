@@ -21,7 +21,7 @@ export let Home = () => {
           </div>
           <div className="border"></div>
         </div>
-        <div className="">
+        <div className="ps-5">
           <Navbar expand="lg">
             <Navbar.Brand>
               <div className="nav-logo mx-2">E-YORN AIRLINES</div>
@@ -32,13 +32,13 @@ export let Home = () => {
               style={{ backgroundColor: "#EAEAEA" }}
             />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="mr-auto">
+              <Nav>
                 <Link className="navigation-links nav-link" to="add">
                   Book
                 </Link>
                 <Link
                   className="navigation-links nav-link"
-                  to={`${userdata.ID}`}
+                  to="profile"
                 >
                   Manage
                 </Link>
@@ -52,8 +52,8 @@ export let Home = () => {
                   About
                 </Link>
               </Nav>
-              <Nav className="w-100 justify-content-end  mx-sm-5">
-                <Nav.Link className="navigation-links mx-sm-3 d-flex align-items-center " href="/">
+              <Nav className="w-100 justify-content-end">
+                <Nav.Link className="navigation-links signout-btn d-flex align-items-center " href="/">
                   <i class="bi bi-person-circle mx-1 boot-icons "></i>
                   Sign out
                 </Nav.Link>

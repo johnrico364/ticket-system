@@ -1,34 +1,31 @@
-.nav-logo {
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    color: #EAEAEA;
-}
-
-.nav-logo-2 {
-    font-size: 10.7px;
-    color: #EAEAEA;
-    letter-spacing: 0.4px;
-}
-
-.navigation-links {
-    color: #EAEAEA;
-}
-
-.navigation-links:hover {
-    color: #EAEAEA;
-}
-
-.boot-icons {
-    font-size: 22px;
-    color: #EAEAEA;
-}
-
 .container-background {
-    background-image: url(/src/components/photos/CCLEX.jpg);
-    height: 78vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  background-image: url(/src/components/photos/CCLEX.jpg);
+  height: 78vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
+.nav-logo {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #eaeaea;
+}
+.nav-logo-2 {
+  font-size: 10.7px;
+  color: #eaeaea;
+  letter-spacing: 0.4px;
+}
+.navigation-links {
+  color: #eaeaea;
+}
+.navigation-links:hover {
+  color: #eaeaea;
+}
+.boot-icons {
+  font-size: 22px;
+  color: #eaeaea;
+}
+.signout-btn {
+  margin-right: 60px;
+}

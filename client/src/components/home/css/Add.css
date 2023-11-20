@@ -52,3 +52,16 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+/* response */
+.book-response{
+    color: rgb(255, 30, 0);
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+.is-add{
+    margin-left: 20px;
+    color: rgb(54, 255, 47);
+}

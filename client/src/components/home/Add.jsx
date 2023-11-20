@@ -12,22 +12,33 @@ export let Add = () => {
   let [depart, setDepart] = useState("");
   let [classSeat, setClassSeat] = useState("");
 
+  const [response, setResponse] = useState("");
+  const [isadd, setIsadd] = useState("");
+
   const ticketAPI = async (newPost) => {
     try {
-      await axios.post("", newPost);
+      const data = await axios.post(
+        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/create",
+        newPost
+      );
+      setIsadd(data.data.message);
     } catch (err) {
-      console.log(err);
+      setResponse(err.response.data.message);
     }
   };
+  const handleBook = async () => {
+    const data = {
+      createdBy: userdata.ID,
+      ticketFrom: origin,
+      ticketTo: destination,
+      depart: depart,
+      class: classSeat,
+    };
 
-  let handleOrigin = (e) => {
-    setOrigin(e.target.value);
-  };
-  let handleDestination = (e) => {
-    setDestination(e.target.value);
+    await ticketAPI(data);
   };
 
-  let handleDepart = (e) => {
+  const handleDepart = (e) => {
     //mga alert validation, need to display in UI
     let inputDate = e.target.value;
     const today = new Date();
@@ -39,48 +50,47 @@ export let Add = () => {
     const formattedDate = `${day}-${month}-${year}`;
 
     if (year < yyyy) {
-      alert("Invalid year");
+      setResponse("Invalid year");
       return;
     }
-    console.log("day " + day);
     if (year == yyyy && month < mm) {
-      alert("invalid month");
+      setResponse("Invalid month");
       return;
     }
     if (month == mm && day <= dd) {
-      alert("invalid day");
+      setResponse("Invalid day");
       return;
+    }
+    if (month == mm && day >= dd) {
+      setResponse("");
     }
     //Code above, is validation para di siya kapili ug date na before sa current date
     setDepart(formattedDate);
   };
 
-  let handleClass = (e) => {
-    setClassSeat(e.target.value);
-  };
-
   return (
     <div>
       <div className="container">
-        <p className="text-warning">
-          {origin} || {destination} || {depart} -- {classSeat} === {userdata.ID}
-        </p>
         <div className="row parent justify-content-center ">
           <div className="col-12 child">
             <div className="text-white p-2" style={{ fontSize: "12px" }}>
               <i class="bi bi-airplane-fill pe-1"></i> Flight
+              <span className="is-add"> {isadd === "" || `! ${isadd}`} </span>
             </div>
             <div className="row add-container mx-3 mb-2 ">
               <div className="col-md-5 add-form-container me-3">
                 <div className="row ">
                   <div className="col-5">
                     <label className="small-label">From</label>
-                    <select className="w-100 add-input" onChange={handleOrigin}>
+                    <select
+                      className="w-100 add-input"
+                      onChange={(e) => setOrigin(e.target.value)}
+                    >
                       <option disabled selected>
                         Origin
                       </option>
                       <option>Baguio</option>
-                      <option>Boracay (Caticlan)</option>
+                      <option>Boracay</option>
                       <option>Cagayan de Oro</option>
                       <option>Cebu</option>
                       <option>Cotabato</option>
@@ -101,13 +111,13 @@ export let Add = () => {
                     <label className="small-label">To</label>
                     <select
                       className="w-100 add-input"
-                      onChange={handleDestination}
+                      onChange={(e) => setDestination(e.target.value)}
                     >
                       <option disabled selected>
                         Select Distination
                       </option>
                       <option>Baguio</option>
-                      <option>Boracay (Caticlan)</option>
+                      <option>Boracay</option>
                       <option>Cagayan de Oro</option>
                       <option>Cebu</option>
                       <option>Cotabato</option>
@@ -138,7 +148,11 @@ export let Add = () => {
                   <i class="col-1 bi bi-arrows-expand-vertical align-self-center"></i>
                   <div className="col-5">
                     <label className="small-label">Class</label>
-                    <select className="w-100 add-input" onChange={handleClass}>
+                    <select
+                      className="w-100 add-input"
+                      onChange={(e) => setClassSeat(e.target.value)}
+                    >
+                      <option disabled>Class Type</option>
                       <option>Economy</option>
                       <option>Economy Plus</option>
                       <option>Business</option>
@@ -149,7 +163,12 @@ export let Add = () => {
                 </div>
               </div>
 
-              <button className="col-md-1 book-btn ms-2">Book</button>
+              <button onClick={handleBook} className="col-md-1 book-btn ms-2">
+                Book
+              </button>
+              <div className="book-response p-0 mt-2">
+                {response === "" || `! ${response}`}
+              </div>
             </div>
           </div>
         </div>
