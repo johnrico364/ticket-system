@@ -1,11 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home/css/Sign-up.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AppContext } from "../App";
 
 export let Signup = () => {
+  const checkUser = sessionStorage.getItem("user");
+
+  useEffect(() => {
+    if (checkUser) {
+      navigate("/home/profile");
+    }
+  }, []);
+
   let navigate = useNavigate();
   let { userdata } = useContext(AppContext);
 

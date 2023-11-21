@@ -8,7 +8,11 @@ export const Update = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row">HEllo</div>
+      <div className="row">
+        <div className="col-12 text-white ">
+          This is update
+        </div>
+      </div>
     </div>
   );
 };

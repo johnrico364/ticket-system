@@ -6,6 +6,14 @@ import axios from "axios";
 import { AppContext } from "../App";
 
 export let Login = () => {
+  const checkUser = sessionStorage.getItem("user");
+
+  useEffect(() => {
+    if (checkUser) {
+      navigate("home/profile");
+    }
+  }, []);
+
   let navigate = useNavigate();
   let { userdata, setUserdata } = useContext(AppContext);
 
@@ -29,13 +37,12 @@ export let Login = () => {
 
   let handleLogin = async () => {
     let getdata = await loginAPI();
-    console.log(getdata);
-    // setUserdata(dataget);
 
     if (username === "" || password === "") {
       setResponse("Fill up all the container");
       return;
     }
+    const user = sessionStorage.setItem("user", username);
 
     getdata && navigate(`/home/profile`);
   };
@@ -48,7 +55,6 @@ export let Login = () => {
           <div className="row p-3">
             <div className="text-logo mt-3 mx-3">E-YORN AIRLINE</div>
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
-            <div>{userdata?.USER_NAME}</div>
           </div>
 
           <div className="form-container row g-3 m-5 justify-content-center align-content-center">

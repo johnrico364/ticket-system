@@ -1,12 +1,26 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/Home.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../../App";
 
 export let Home = () => {
+  const checkUser = sessionStorage.getItem("user");
+
+  useEffect(() => {
+    if (!checkUser) {
+      navigate("/");
+    }
+  }, []);
+
   let { userdata } = useContext(AppContext);
+  const navigate = useNavigate()
+
+  const handleSignout = () =>{
+    sessionStorage.clear();
+    navigate("/");
+  }
 
   return (
     <div className="container-fluid container-background">
@@ -40,7 +54,7 @@ export let Home = () => {
                   className="navigation-links nav-link"
                   to="profile"
                 >
-                  Manage
+                  Profile
                 </Link>
                 <Link className="navigation-links nav-link " to="list">
                   Dashboard
@@ -53,7 +67,7 @@ export let Home = () => {
                 </Link>
               </Nav>
               <Nav className="w-100 justify-content-end">
-                <Nav.Link className="navigation-links signout-btn d-flex align-items-center " href="/">
+                <Nav.Link onClick={handleSignout} className="navigation-links signout-btn d-flex align-items-center ">
                   <i class="bi bi-person-circle mx-1 boot-icons "></i>
                   Sign out
                 </Nav.Link>

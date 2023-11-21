@@ -6,54 +6,52 @@
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+
 .profile-pic {
   font-size: 85px;
 }
+
 .profile-container {
-  height: 30vh;
+  height: 50vh;
   border-radius: 10px;
   background-color: #1359a1;
   color: white;
 }
-.parent-profile-container{
+
+.parent-profile-container {
   box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
 }
+
 .profile-name {
-  font-size: 1.5vw;
+  font-size: 1.9vw;
   letter-spacing: 0.7px;
 }
+
 .profile-details {
-  font-size: 0.8vw;
+  font-size: 1vw;
   letter-spacing: 0.3px;
 }
-/* Sa ticket nga side */
-.ticket-show-type {
-  font-size: 0.8vw;
-  font-weight: bold;
-  outline: 0;
-  padding: 8px;
+
+.table-values {
+  height: 6vh;
+  font-size: 1vw;
   border-radius: 5px;
+  border-right: 5px solid #1359A1;
+  box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
 }
-.table-discription{
-    font-size: 1vw;
-    font-weight: bold;
-    color:  rgba(128, 128, 128, 0.767);
+
+.edit-link {
+  font-size: 1.3vw;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  cursor: pointer;
 }
-.table-values{
-    height: 6vh;
-    font-size: 1vw;
-    border-radius: 5px;
-    border-right: 5px solid #1359A1;
-    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
-}
-.edit-link{
-    color: #1359A1;
-    font-weight: bold;
-}
-.uuid-color{
+
+.uuid-color {
   color: rgb(0, 119, 255);
 }
-.ticket-profile-container{
+
+.ticket-profile-container {
   height: 70vh;
 }
 
@@ -66,6 +64,7 @@
     transform: translateY(500px);
     opacity: 1;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
