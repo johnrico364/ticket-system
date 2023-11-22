@@ -1,11 +1,14 @@
-import "./css/Dashboard.css";
+import "./css/List.css"
 import { AppContext } from "../../App";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-export const Dashboard = () => {
+export const List = () => {
+  const {setTicketdata, ticketdata} = useContext(AppContext)
+  const navigate = useNavigate();
+
   const getallTicketAPI = async () => {
     try {
       let data = await axios.get(
@@ -16,6 +19,11 @@ export const Dashboard = () => {
       console.log(err);
     }
   };
+  
+  const handleUpdate = (ticket) =>{
+    setTicketdata(ticket);
+    navigate("/admin/update");
+  }
 
   const data = useQuery({
     queryKey: ["ticket"],
@@ -52,7 +60,7 @@ export const Dashboard = () => {
                 {data.isLoading && <h1>Loading...</h1>}
                 {data.data?.map((ticket) => {
                   return (
-                    <div className="row mx-5 mt-1 mb-3 table-values">
+                    <div className="row mx-5 mt-1 mb-3 table-values" onClick={() => handleUpdate(ticket)}>
                       <div className="col-1 p-0">
                         <i class="dashboard-pic bi bi-person-circle ms-1"></i>
                       </div>

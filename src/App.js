@@ -8,12 +8,13 @@ import { Login } from "./components/Login";
 import { Home } from "./components/home/Home";
 import { Signup } from "./components/Signup";
 import { Add } from "./components/home/Add";
-import { Dashboard } from "./components/home/Dashboard";
 import { Aboutus } from "./components/home/Aboutus";
 import { PersonalList } from "./components/home/Personal-list";
 import { Explore } from "./components/home/Explore";
 import { useState, createContext } from "react";
 import { Update } from "./components/home/Update";
+import { Admin } from "./components/admin/Admin";
+import { List } from "./components/admin/List";
 
 export let AppContext = createContext();
 
@@ -32,16 +33,20 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/home" element={<Home />}>
                 <Route path="add" element={<Add />} />
                 <Route path="profile" element={<PersonalList />} />
-                <Route path="update" element={<Update/>}/>
-                <Route path="list" element={<Dashboard />} />
                 <Route path="explore" element={<Explore />} />
                 <Route path="aboutus" element={<Aboutus />} />
               </Route>
-
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/admin" element={<Admin />}>
+                <Route path="list" element={<List />} />
+                <Route path="update" element={<Update />} />
+                <Route />
+                <Route />
+                <Route />
+              </Route>
               <Route path="*" element={<h1>NO PAGE FOUND...</h1>} />
             </Routes>
           </Router>

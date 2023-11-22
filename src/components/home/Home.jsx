@@ -56,9 +56,6 @@ export let Home = () => {
                 >
                   Profile
                 </Link>
-                <Link className="navigation-links nav-link " to="list">
-                  Dashboard
-                </Link>
                 <Link className="navigation-links nav-link" to="explore">
                   Explore
                 </Link>

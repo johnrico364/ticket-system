@@ -27,8 +27,7 @@ export let Login = () => {
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/login/${username}/${password}`
       );
       setUserdata(data.data[0]);
-      // console.log(userdata);
-      return true;
+      return data.data[0];
     } catch (err) {
       setResponse(err.response.data.message);
       return false;
@@ -36,15 +35,18 @@ export let Login = () => {
   };
 
   let handleLogin = async () => {
-    let getdata = await loginAPI();
-
     if (username === "" || password === "") {
       setResponse("Fill up all the container");
       return;
     }
-    const user = sessionStorage.setItem("user", username);
+    const getdata = await loginAPI();
 
-    getdata && navigate(`/home/profile`);
+    const user = sessionStorage.setItem("user", getdata.USER_NAME);
+    if (getdata.STATUS === "admin") {
+      navigate("/admin/list");
+    } else if (getdata.USER_NAME === username) {
+      navigate("/home");
+    }
   };
 
   return (
