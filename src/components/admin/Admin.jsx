@@ -41,7 +41,7 @@ export const Admin = () => {
           <Link className="navigation-links nav-link" to={"list"}>List</Link>
         </li>
         <li className="nav-item mx-1">
-          <Link className="navigation-links nav-link">Dashboard</Link>
+          <Link className="navigation-links nav-link" to={"dashboard"}>Dashboard</Link>
         </li>
       </ul>
       <Outlet />

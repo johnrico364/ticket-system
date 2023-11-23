@@ -12,9 +12,10 @@ import { Aboutus } from "./components/home/Aboutus";
 import { PersonalList } from "./components/home/Personal-list";
 import { Explore } from "./components/home/Explore";
 import { useState, createContext } from "react";
-import { Update } from "./components/home/Update";
+import { Update } from "./components/admin/Update";
 import { Admin } from "./components/admin/Admin";
 import { List } from "./components/admin/List";
+import { Dashboard } from "./components/admin/Dashboard";
 
 export let AppContext = createContext();
 
@@ -43,7 +44,7 @@ function App() {
               <Route path="/admin" element={<Admin />}>
                 <Route path="list" element={<List />} />
                 <Route path="update" element={<Update />} />
-                <Route />
+                <Route path="dashboard" element={<Dashboard/>}/>
                 <Route />
                 <Route />
               </Route>

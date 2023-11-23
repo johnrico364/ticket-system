@@ -1,19 +1,20 @@
-.dashboard-background {
+.list-background {
   height: 84vh;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 12px;
+  width: 101vw;
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-.dashboard-title{
+.list-title{
   font-weight: bold;
   font-size: 1vw;
 }
-.dashboard-pic{
+.list-pic{
   font-size: 30px;
   color: #1359A1;
 }
-.tickets-dashboard-container{
+.tickets-list-container{
   height: 70vh;
 }

@@ -32,11 +32,11 @@ export const List = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row dashboard-background ">
+      <div className="row list-background ">
         <div className="col-12 mt-5">
           <div className="row">
             <div className="col-12">
-              <div className="ms-5 dashboard-title"> All ticket booked</div>
+              <div className="ms-5 list-title"> All ticket booked</div>
               <div className="border"></div>
             </div>
             <div className="col-12 mt-2">
@@ -56,13 +56,13 @@ export const List = () => {
                 </div>
               </div>
               {/* .map here below */}
-              <div className="overflow-auto tickets-dashboard-container">
+              <div className="overflow-auto tickets-list-container">
                 {data.isLoading && <h1>Loading...</h1>}
                 {data.data?.map((ticket) => {
                   return (
                     <div className="row mx-5 mt-1 mb-3 table-values" onClick={() => handleUpdate(ticket)}>
                       <div className="col-1 p-0">
-                        <i class="dashboard-pic bi bi-person-circle ms-1"></i>
+                        <i class="list-pic bi bi-person-circle ms-1"></i>
                       </div>
                       <div className="col-4 d-flex align-items-center">
                         <span className="uuid-color">{ticket.created_by}</span>

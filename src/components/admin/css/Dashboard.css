@@ -1,8 +1,8 @@
-.update-background {
-  height: 78vh;
+.dashboard-container {
+  height: 84vh;
   position: fixed;
+  left: 12px;
   bottom: 0;
-  left: 0;
   width: 101vw;
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
