@@ -3,47 +3,60 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../App";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 export let Add = () => {
-  const { userdata } = useContext(AppContext);
-  const navigate = useNavigate()
+  const { userdata, setUserdata } = useContext(AppContext);
+  const checkUser = sessionStorage.getItem("user");
+  const navigate = useNavigate();
 
   let [origin, setOrigin] = useState("");
   let [destination, setDestination] = useState("");
   let [depart, setDepart] = useState("");
+  const [returned, setReturned] = useState("");
   let [classSeat, setClassSeat] = useState("");
 
   const [response, setResponse] = useState("");
-  const [isadd, setIsadd] = useState("");
 
+  const sessionAPI = async () => {
+    try {
+      const data = await axios.get(
+        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/session/${checkUser}`
+      );
+      setUserdata(data.data.items[0])
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const ticketAPI = async (newPost) => {
     try {
       const data = await axios.post(
         "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/create",
         newPost
       );
-      return true
-      setIsadd(data.data.message);
+      return true;
     } catch (err) {
       setResponse(err.response.data.message);
-      return false
+      return false;
     }
   };
+
   const handleBook = async () => {
+    console.log(userdata);
     const data = {
-      createdBy: userdata.ID,
+      createdBy: userdata.id,
       ticketFrom: origin,
       ticketTo: destination,
       depart: depart,
+      return: returned,
       class: classSeat,
     };
 
     const status = await ticketAPI(data);
-    status && navigate("/home/ticketfrom")
+    status && navigate("/home/ticketfrom");
   };
 
   const handleDepart = (e) => {
-    //mga alert validation, need to display in UI
     let inputDate = e.target.value;
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -71,7 +84,39 @@ export let Add = () => {
     //Code above, is validation para di siya kapili ug date na before sa current date
     setDepart(formattedDate);
   };
+  const handleReturn = (e) => {
+    let inputDate = e.target.value;
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
 
+    const [year, month, day] = inputDate.split("-");
+    const formattedDate = `${day}-${month}-${year}`;
+
+    if (year < yyyy) {
+      setResponse("Invalid year");
+      return;
+    }
+    if (year == yyyy && month < mm) {
+      setResponse("Invalid month");
+      return;
+    }
+    if (month == mm && day <= dd) {
+      setResponse("Invalid day");
+      return;
+    }
+    if (month == mm && day >= dd) {
+      setResponse("");
+    }
+    //Code above, is validation para di siya kapili ug date na before sa current date
+    setReturned(formattedDate);
+  };
+
+  const data = useQuery({
+    queryKey: ["session"],
+    queryFn: sessionAPI
+  })
   return (
     <div>
       <div className="container">
@@ -79,7 +124,6 @@ export let Add = () => {
           <div className="col-12 child">
             <div className="text-white p-2" style={{ fontSize: "12px" }}>
               <i class="bi bi-airplane-fill pe-1"></i> Flight
-              <span className="is-add"> {isadd === "" || `! ${isadd}`} </span>
             </div>
             <div className="row add-container mx-3 mb-2">
               <div className="col-md-5 add-form-container me-3">
@@ -151,18 +195,12 @@ export let Add = () => {
                   </div>
                   <i class="col-1 bi bi-arrows-expand-vertical align-self-center"></i>
                   <div className="col-5">
-                    <label className="small-label">Class</label>
-                    <select
-                      className="w-100 add-input"
-                      onChange={(e) => setClassSeat(e.target.value)}
-                    >
-                      <option disabled>Class Type</option>
-                      <option>Economy</option>
-                      <option>Economy Plus</option>
-                      <option>Business</option>
-                      <option>First Class</option>
-                      <option>VIP</option>
-                    </select>
+                    <label className="small-label ">Return</label>
+                    <input
+                      className="w-100 add-input "
+                      type="date"
+                      onChange={handleReturn}
+                    />
                   </div>
                 </div>
               </div>
@@ -170,6 +208,23 @@ export let Add = () => {
               <button onClick={handleBook} className="col-md-1 book-btn ms-2">
                 Search Flight
               </button>
+
+              <div className="col-5 add-form-container mt-2">
+                <label className="small-label">Class</label>
+                <select
+                  className="w-100 add-input"
+                  onChange={(e) => setClassSeat(e.target.value)}
+                >
+                  <option disabled selected>
+                    Class Type
+                  </option>
+                  <option>Economy</option>
+                  <option>Economy Plus</option>
+                  <option>Business</option>
+                  <option>First Class</option>
+                  <option>VIP</option>
+                </select>
+              </div>
               <div className="book-response p-0 mt-2">
                 {response === "" || `! ${response}`}
               </div>

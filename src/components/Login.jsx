@@ -45,7 +45,7 @@ export let Login = () => {
     if (getdata.STATUS === "admin") {
       navigate("/admin/list");
     } else if (getdata.USER_NAME === username) {
-      navigate("/home");
+      navigate("/home/profile");
     }
   };
 
