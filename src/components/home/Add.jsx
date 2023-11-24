@@ -6,6 +6,7 @@ import axios from "axios";
 
 export let Add = () => {
   const { userdata } = useContext(AppContext);
+  const navigate = useNavigate()
 
   let [origin, setOrigin] = useState("");
   let [destination, setDestination] = useState("");
@@ -21,9 +22,11 @@ export let Add = () => {
         "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/create",
         newPost
       );
+      return true
       setIsadd(data.data.message);
     } catch (err) {
       setResponse(err.response.data.message);
+      return false
     }
   };
   const handleBook = async () => {
@@ -35,7 +38,8 @@ export let Add = () => {
       class: classSeat,
     };
 
-    await ticketAPI(data);
+    const status = await ticketAPI(data);
+    status && navigate("/home/ticketfrom")
   };
 
   const handleDepart = (e) => {
@@ -77,7 +81,7 @@ export let Add = () => {
               <i class="bi bi-airplane-fill pe-1"></i> Flight
               <span className="is-add"> {isadd === "" || `! ${isadd}`} </span>
             </div>
-            <div className="row add-container mx-3 mb-2 ">
+            <div className="row add-container mx-3 mb-2">
               <div className="col-md-5 add-form-container me-3">
                 <div className="row ">
                   <div className="col-5">
@@ -164,7 +168,7 @@ export let Add = () => {
               </div>
 
               <button onClick={handleBook} className="col-md-1 book-btn ms-2">
-                Book
+                Search Flight
               </button>
               <div className="book-response p-0 mt-2">
                 {response === "" || `! ${response}`}

@@ -16,6 +16,7 @@ import { Update } from "./components/admin/Update";
 import { Admin } from "./components/admin/Admin";
 import { List } from "./components/admin/List";
 import { Dashboard } from "./components/admin/Dashboard";
+import { TicketFrom } from "./components/home/TicketFrom";
 
 export let AppContext = createContext();
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/home" element={<Home />}>
                 <Route path="add" element={<Add />} />
+                <Route path="ticketfrom" element={<TicketFrom/>}/>
                 <Route path="profile" element={<PersonalList />} />
                 <Route path="explore" element={<Explore />} />
                 <Route path="aboutus" element={<Aboutus />} />
