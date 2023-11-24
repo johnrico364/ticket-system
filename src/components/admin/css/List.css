@@ -18,3 +18,7 @@
 .tickets-list-container{
   height: 70vh;
 }
+.table-discription{
+  color: rgba(128, 128, 128, 0.685);
+  font-weight: bold;
+}

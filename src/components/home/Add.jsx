@@ -6,7 +6,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 export let Add = () => {
-  const { userdata, setUserdata } = useContext(AppContext);
+  const { userdata, setUserdata, setTicketdata } = useContext(AppContext);
   const checkUser = sessionStorage.getItem("user");
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export let Add = () => {
       const data = await axios.get(
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/session/${checkUser}`
       );
-      setUserdata(data.data.items[0])
+      setUserdata(data.data.items[0]);
     } catch (err) {
       console.log(err);
     }
@@ -34,26 +34,12 @@ export let Add = () => {
         "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/create",
         newPost
       );
+      setTicketdata(newPost);
       return true;
     } catch (err) {
       setResponse(err.response.data.message);
       return false;
     }
-  };
-
-  const handleBook = async () => {
-    console.log(userdata);
-    const data = {
-      createdBy: userdata.id,
-      ticketFrom: origin,
-      ticketTo: destination,
-      depart: depart,
-      return: returned,
-      class: classSeat,
-    };
-
-    const status = await ticketAPI(data);
-    status && navigate("/home/ticketfrom");
   };
 
   const handleDepart = (e) => {
@@ -113,10 +99,24 @@ export let Add = () => {
     setReturned(formattedDate);
   };
 
+  const handleBook = async () => {
+    const data = {
+      createdBy: userdata.id,
+      ticketFrom: origin,
+      ticketTo: destination,
+      depart: depart,
+      return: returned,
+      class: classSeat,
+    };
+
+    const status = await ticketAPI(data);
+    status && navigate("/home/ticketfrom");
+  };
+
   const data = useQuery({
     queryKey: ["session"],
-    queryFn: sessionAPI
-  })
+    queryFn: sessionAPI,
+  });
   return (
     <div>
       <div className="container">

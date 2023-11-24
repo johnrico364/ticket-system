@@ -6,3 +6,25 @@
     background-color: white;
     animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+.flight-title{
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.ticketfrom-container{
+    height: 75vh;
+    position: relative;
+}
+.tktfrom-return-btn{
+    font-size: 40px;
+    position: absolute;
+    bottom: 2.5vh;
+    right: 14vh;
+    cursor: pointer;
+}
+
+.brand-coloring{
+    color: #1359A1;
+}
+.table-font-size{
+    font-size: 13px;
+}
