@@ -21,7 +21,7 @@
 
 .input-container{
     background-color: #EAEAEA;
-    height: 50px;
+    height: 6.3vh;
 }
 .input-container::placeholder{
     font-size: 13px;

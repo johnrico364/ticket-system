@@ -55,46 +55,56 @@ export let PersonalList = () => {
           </div>
         </div>
         <div className="col-7 ms-3 mt-5">
-          {editprofile && (
-            <div className="row">
-              <div className="col-12">
+          <div className="row">
+            <div className="col-12 edit-container">
+              {editprofile && (
                 <div className="row">
-                  <div className="col">
-                    <input
-                      className="input-container form-control "
-                      type="text"
-                      placeholder="Firstname:"
-                    />
+                  <div className="col-12 p-0">
+                    <div className="row">
+                      <div className="col">
+                        <input
+                          className="input-container form-control "
+                          type="text"
+                          placeholder="Firstname:"
+                          defaultValue={userdata.first_name}
+                        />
+                      </div>
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col">
+                        <input
+                          className="input-container form-control "
+                          type="text"
+                          placeholder="Lastname:"
+                          defaultValue={userdata.last_name}
+                        />
+                      </div>
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col">
+                        <input
+                          className="input-container form-control "
+                          type="text"
+                          placeholder="Email:"
+                          defaultValue={userdata.user_name}
+                        />
+                      </div>
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col">
+                        <button className="login-btn w-100 btn btn-primary">
+                          Update
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <input
-                      className="input-container form-control "
-                      type="text"
-                      placeholder="Lastname:"
-                    />
-                  </div>
-                </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <input
-                      className="input-container form-control "
-                      type="text"
-                      placeholder="Email:"
-                    />
-                  </div>
-                </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <button className="login-btn w-100 btn btn-primary">
-                      Update
-                    </button>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
-          )}
+            <div className="col-12 p-0 mt-1 overflow-auto approved-ticket-container">
+              <h4>Upcoming flights</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
