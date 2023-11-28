@@ -65,7 +65,7 @@ export let Login = () => {
               <div className="row mt-3">
                 <div className="col">
                   <input
-                    className="input-container form-control"
+                    className="input_Container form-control"
                     type="text"
                     placeholder="Username:"
                     onChange={(e) => setUsername(e.target.value)}
@@ -75,7 +75,7 @@ export let Login = () => {
               <div className="row mt-3">
                 <div className="col">
                   <input
-                    className="input-container form-control"
+                    className="input_Container form-control"
                     type="Password"
                     placeholder="Password:"
                     onChange={(e) => setPassword(e.target.value)}

@@ -6,7 +6,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 export const Update = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { userdata, ticketdata, setTicketdata } = useContext(AppContext);
   const [ticketowner, setTicketowner] = useState({});
 
@@ -33,12 +33,17 @@ export const Update = () => {
               <h3>Ticket Details:</h3>
               {console.log(data.data)}
               <p>Ticket ID: {ticketdata.ticket_id}</p>
-              <p>Owner: {data.data?.first_name} {data.data?.last_name}</p>
+              <p>
+                Owner: {data.data?.first_name} {data.data?.last_name}
+              </p>
               <p>Owner's ID: {data.data?.id}</p>
               <p>Seat Type: {ticketdata.class}</p>
               <p>To Depart: {ticketdata.depart}</p>
               <p>To Return: {ticketdata.return}</p>
-              <i class="bi bi-arrow-return-left" onClick={() => navigate("/admin/list")}></i>
+              <i
+                class="bi bi-arrow-return-left return-btn"
+                onClick={() => navigate("/admin/list")}
+              ></i>
             </div>
             <div className="col-6">sd</div>
           </div>

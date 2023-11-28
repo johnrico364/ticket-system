@@ -15,9 +15,7 @@ export const List = () => {
         "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/not-approved"
       );
       return data.data.items;
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUpdate = (ticket) => {
@@ -60,7 +58,6 @@ export const List = () => {
               {/* .map here below */}
               <div className="overflow-auto tickets-list-container">
                 {data.isLoading && <h1>Loading...</h1>}
-                {console.log(data.data)}
                 {data.data?.map((ticket) => {
                   return (
                     <div
