@@ -22,3 +22,37 @@
   color: rgba(128, 128, 128, 0.685);
   font-weight: bold;
 }
+
+.ticket-values-container{
+  height: 270px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
+}
+.ticket-logo {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #1359A1;
+}
+.ticket-logo-2 {
+  font-size: 8px;
+  letter-spacing: 0.4px;
+  color: #1359A1;
+}
+.ticket-type{
+  font-size: 13px;
+}
+.ticket-label{
+  font-size: 10px;
+  color: rgba(128, 128, 128, 0.802);
+}
+.ticket-value{
+  font-size: 12px;
+  font-weight: bold;
+}
+.ticket-picture{
+  border-radius: 0 8px 8px 0;
+  background-image: url("../../photos/airplane.jpg");
+  background-size: cover;
+  height: 270px;
+}

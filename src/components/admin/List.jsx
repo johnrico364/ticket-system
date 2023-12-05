@@ -38,53 +38,113 @@ export const List = () => {
               <div className="border"></div>
             </div>
             <div className="col-12 mt-2">
-              <div className="row mx-5 mb-2 table-discription">
-                <div className="col-4 d-flex align-items-center">
-                  <span>USER I.D</span>
-                </div>
-                <div className="col-1 d-flex align-items-center">
-                  <span>DEPART</span>
-                </div>
-                <div className="col-2 d-flex align-items-center">
-                  <span>RETURN</span>
-                </div>
-                <div className="col-3 d-flex align-items-center">
-                  <span>DESTINATION</span>
-                </div>
-                <div className="col-2 d-flex align-items-center">
-                  <span>CLASS TYPE</span>
-                </div>
-              </div>
               {/* .map here below */}
               <div className="overflow-auto tickets-list-container">
                 {data.isLoading && <h1>Loading...</h1>}
-                {data.data?.map((ticket) => {
-                  return (
-                    <div
-                      className="row mx-5 mt-1 mb-3 table-values"
-                      onClick={() => handleUpdate(ticket)}
-                    >
-                      <div className="col-4 d-flex align-items-center">
-                        <i class="list-pic bi bi-person-circle me-1"></i>
-                        <span className="uuid-color">{ticket.created_by}</span>
+                <div className="row mx-5 mt-2 justify-content-center">
+                  <div className="col-lg-5 me-3 ticket-values-container">
+                    <div className="row">
+                      <div className="col-8">
+                        <div className="row mt-2">
+                          <div className="col-8">
+                            <div className="ticket-logo">E-YORN AIRLINES</div>
+                            <div className="ticket-logo-2">
+                              Fly with the friendly skies
+                            </div>
+                          </div>
+                          <div className="col-4 ticket-type">ECONOMY CLASS</div>
+                          <div className="border"></div>
+                        </div>
+                        <div className="row mt-2">
+                          <div className="col-6">
+                            <div className="ticket-label">From</div>
+                            <div className="ticket-value">Cebu</div>
+                          </div>
+                          <div className="col-6">
+                            <div className="ticket-label">To</div>
+                            <div className="ticket-value">Manila</div>
+                          </div>
+                          <div className="col-6 mt-4">
+                            <div className="ticket-label">Passenger</div>
+                            <div className="ticket-value">
+                              John Anthony Rico
+                            </div>
+                          </div>
+                          <div className="col-6 mt-4">
+                            <div className="ticket-label">User ID</div>
+                            <div className="ticket-value">
+                              0AE58A62-9D83-03A6-E063-0311A8C00564
+                            </div>
+                          </div>
+                          <div className="col-3 mt-4">
+                            <div className="ticket-label">Departure</div>
+                            <div className="ticket-value">12-42-2303</div>
+                          </div>
+                          <div className="col-3 mt-4">
+                            <div className="ticket-label">Return</div>
+                            <div className="ticket-value">12-42-2303</div>
+                          </div>
+                          <div className="col-6 mt-4">
+                            <div className="ticket-label">Price</div>
+                            <div className="ticket-value">₱ 2000</div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="col-1 d-flex align-items-center">
-                        <span>{ticket.depart} </span>
-                      </div>
-                      <div className="col-2 d-flex align-items-center">
-                        <span>{ticket.return} </span>
-                      </div>
-                      <div className="col-3 d-flex align-items-center">
-                        <span>
-                          {ticket.ticket_from} - {ticket.ticket_to}
-                        </span>
-                      </div>
-                      <div className="col-2 d-flex align-items-center">
-                        <span>{ticket.class}</span>
-                      </div>
+                      <div className="col-4 ticket-picture border"></div>
                     </div>
-                  );
-                })}
+                  </div>
+                  <div className="col-lg-5 me-3 ticket-values-container">
+                    <div className="row">
+                      <div className="col-8">
+                        <div className="row mt-2">
+                          <div className="col-8">
+                            <div className="ticket-logo">E-YORN AIRLINES</div>
+                            <div className="ticket-logo-2">
+                              Fly with the friendly skies
+                            </div>
+                          </div>
+                          <div className="col-4 ticket-type">ECONOMY CLASS</div>
+                          <div className="border"></div>
+                        </div>
+                        <div className="row mt-2">
+                          <div className="col-6">
+                            <div className="ticket-label">From</div>
+                            <div className="ticket-value">Cebu</div>
+                          </div>
+                          <div className="col-6">
+                            <div className="ticket-label">To</div>
+                            <div className="ticket-value">Manila</div>
+                          </div>
+                          <div className="col-6 mt-4">
+                            <div className="ticket-label">Passenger</div>
+                            <div className="ticket-value">
+                              John Anthony Rico
+                            </div>
+                          </div>
+                          <div className="col-6 mt-4">
+                            <div className="ticket-label">User ID</div>
+                            <div className="ticket-value">
+                              0AE58A62-9D83-03A6-E063-0311A8C00564
+                            </div>
+                          </div>
+                          <div className="col-3 mt-4">
+                            <div className="ticket-label">Departure</div>
+                            <div className="ticket-value">12-42-2303</div>
+                          </div>
+                          <div className="col-3 mt-4">
+                            <div className="ticket-label">Return</div>
+                            <div className="ticket-value">12-42-2303</div>
+                          </div>
+                          <div className="col-6 mt-4">
+                            <div className="ticket-label">Price</div>
+                            <div className="ticket-value">₱ 2000</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-4 ticket-picture border"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
