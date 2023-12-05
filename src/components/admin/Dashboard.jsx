@@ -32,7 +32,7 @@ export const Dashboard = () => {
   });
   return (
     <div className="container-fluid">
-      <div className="row justify-content-center dashboard-container">
+      <div className="row justify-content-center dashboard-container overflow-auto">
         <div className="col-11">
           <div className="row d-block depart-now-container overflow-auto border">
             <div className="depart-title">Departing now:</div>

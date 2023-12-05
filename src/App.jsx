@@ -17,6 +17,7 @@ import { Admin } from "./components/admin/Admin";
 import { List } from "./components/admin/List";
 import { Dashboard } from "./components/admin/Dashboard";
 import { TicketFrom } from "./components/home/TicketFrom";
+import { AddFlight } from "./components/admin/AddFlight";
 
 export let AppContext = createContext();
 
@@ -38,7 +39,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/home" element={<Home />}>
                 <Route path="add" element={<Add />} />
-                <Route path="ticketfrom" element={<TicketFrom/>}/>
+                <Route path="ticketfrom" element={<TicketFrom />} />
                 <Route path="profile" element={<PersonalList />} />
                 <Route path="explore" element={<Explore />} />
                 <Route path="aboutus" element={<Aboutus />} />
@@ -46,8 +47,8 @@ function App() {
               <Route path="/admin" element={<Admin />}>
                 <Route path="list" element={<List />} />
                 <Route path="update" element={<Update />} />
-                <Route path="dashboard" element={<Dashboard/>}/>
-                <Route />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="flight" element={<AddFlight />} />
                 <Route />
               </Route>
               <Route path="*" element={<h1>NO PAGE FOUND...</h1>} />

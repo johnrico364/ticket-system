@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
@@ -42,6 +42,9 @@ export const Admin = () => {
         </li>
         <li className="nav-item mx-1">
           <Link className="navigation-links nav-link" to={"dashboard"}>Dashboard</Link>
+        </li>
+        <li className="nav-item mx-1">
+          <Link className="navigation-links nav-link" to={"flight"}>Add Flight</Link>
         </li>
       </ul>
       <Outlet />
