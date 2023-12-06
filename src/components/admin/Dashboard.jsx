@@ -33,96 +33,104 @@ export const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row justify-content-center dashboard-container overflow-auto">
-        <div className="col-11">
-          <div className="row d-block depart-now-container overflow-auto border">
-            <div className="depart-title">Departing now:</div>
-            <div className="col-12">
-              <div className="row mx-1 mt-1 mb-3 table-values">
-                <div className="col-4 d-flex align-items-center">
-                  <i class="list-pic bi bi-person-circle me-1"></i>
-                  <span className="uuid-color">
-                    0AE58A62-9D83-03A6-E063-0311A8C00564
-                  </span>
-                </div>
-                <div className="col-1 d-flex align-items-center">
-                  <span>27-11-2023 </span>
-                </div>
-                <div className="col-2 d-flex align-items-center">
-                  <span>28-11-2023 </span>
-                </div>
-                <div className="col-3 d-flex align-items-center">
-                  <span>Cotabato - Cotabato</span>
-                </div>
-                <div className="col-2 d-flex align-items-center">
-                  <span>Economy Plus</span>
+        <div className="col-12 ">
+          <div className="row">
+            <div className="depart-title ps-4">Departing now:</div>
+            <div className="border mt-2"></div>
+            <div className="row depart-now-container overflow-auto justify-content-center">
+              <div className="col-lg-5 mt-3 me-3 ticket-values-container">
+                <div className="row">
+                  <div className="col-8">
+                    <div className="row mt-2">
+                      <div className="col-8">
+                        <div className="ticket-logo">E-YORN AIRLINES</div>
+                        <div className="ticket-logo-2">
+                          Fly with the friendly skies
+                        </div>
+                      </div>
+                      <div className="col-4 ticket-type">{"ticket.class"}</div>
+                      <div className="border"></div>
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col-6">
+                        <div className="ticket-label">From</div>
+                        <div className="ticket-value">{"ticket.ticket_from"}</div>
+                      </div>
+                      <div className="col-6">
+                        <div className="ticket-label">To</div>
+                        <div className="ticket-value">{"ticket.ticket_to"}</div>
+                      </div>
+                      <div className="col-7 mt-4">
+                        <div className="ticket-label">User ID</div>
+                        <div className="ticket-value">{"ticket.created_by"}</div>
+                      </div>
+                      <div className="col-5 mt-4"></div>
+                      <div className="col-3 mt-4">
+                        <div className="ticket-label">Departure</div>
+                        <div className="ticket-value">{"ticket.depart"}</div>
+                      </div>
+                      <div className="col-3 mt-4">
+                        <div className="ticket-label">Return</div>
+                        <div className="ticket-value">{"ticket.return"}</div>
+                      </div>
+                      <div className="col-6 mt-4">
+                        <div className="ticket-label">Price</div>
+                        <div className="ticket-value">₱ {"ticket.price"}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-4 ticket-picture border"></div>
                 </div>
               </div>
-              <div className="row mx-1 mt-1 mb-3 table-values">
-                <div className="col-4 d-flex align-items-center">
-                  <i class="list-pic bi bi-person-circle me-1"></i>
-                  <span className="uuid-color">
-                    0AE58A62-9D83-03A6-E063-0311A8C00564
-                  </span>
-                </div>
-                <div className="col-1 d-flex align-items-center">
-                  <span>27-11-2023 </span>
-                </div>
-                <div className="col-2 d-flex align-items-center">
-                  <span>28-11-2023 </span>
-                </div>
-                <div className="col-3 d-flex align-items-center">
-                  <span>Cotabato - Cotabato</span>
-                </div>
-                <div className="col-2 d-flex align-items-center">
-                  <span>Economy Plus</span>
+              <div className="col-lg-5 mt-3 me-3 ticket-values-container">
+                <div className="row">
+                  <div className="col-8">
+                    <div className="row mt-2">
+                      <div className="col-8">
+                        <div className="ticket-logo">E-YORN AIRLINES</div>
+                        <div className="ticket-logo-2">
+                          Fly with the friendly skies
+                        </div>
+                      </div>
+                      <div className="col-4 ticket-type">{"ticket.class"}</div>
+                      <div className="border"></div>
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col-6">
+                        <div className="ticket-label">From</div>
+                        <div className="ticket-value">{"ticket.ticket_from"}</div>
+                      </div>
+                      <div className="col-6">
+                        <div className="ticket-label">To</div>
+                        <div className="ticket-value">{"ticket.ticket_to"}</div>
+                      </div>
+                      <div className="col-7 mt-4">
+                        <div className="ticket-label">User ID</div>
+                        <div className="ticket-value">{"ticket.created_by"}</div>
+                      </div>
+                      <div className="col-5 mt-4"></div>
+                      <div className="col-3 mt-4">
+                        <div className="ticket-label">Departure</div>
+                        <div className="ticket-value">{"ticket.depart"}</div>
+                      </div>
+                      <div className="col-3 mt-4">
+                        <div className="ticket-label">Return</div>
+                        <div className="ticket-value">{"ticket.return"}</div>
+                      </div>
+                      <div className="col-6 mt-4">
+                        <div className="ticket-label">Price</div>
+                        <div className="ticket-value">₱ {"ticket.price"}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-4 ticket-picture border"></div>
                 </div>
               </div>
             </div>
           </div>
           <div className="row d-block returning-now-container overflow-auto border">
-            <div className="return-title">Returning now:</div>
-            <div className="col-12">
-            <div className="row mx-1 mt-1 mb-3 table-values">
-              <div className="col-4 d-flex align-items-center">
-                <i class="list-pic bi bi-person-circle me-1"></i>
-                <span className="uuid-color">
-                  0AE58A62-9D83-03A6-E063-0311A8C00564
-                </span>
-              </div>
-              <div className="col-1 d-flex align-items-center">
-                <span>27-11-2023 </span>
-              </div>
-              <div className="col-2 d-flex align-items-center">
-                <span>28-11-2023 </span>
-              </div>
-              <div className="col-3 d-flex align-items-center">
-                <span>Cotabato - Cotabato</span>
-              </div>
-              <div className="col-2 d-flex align-items-center">
-                <span>Economy Plus</span>
-              </div>
-            </div>
-            <div className="row mx-1 mt-1 mb-3 table-values">
-              <div className="col-4 d-flex align-items-center">
-                <i class="list-pic bi bi-person-circle me-1"></i>
-                <span className="uuid-color">
-                  0AE58A62-9D83-03A6-E063-0311A8C00564
-                </span>
-              </div>
-              <div className="col-1 d-flex align-items-center">
-                <span>27-11-2023 </span>
-              </div>
-              <div className="col-2 d-flex align-items-center">
-                <span>28-11-2023 </span>
-              </div>
-              <div className="col-3 d-flex align-items-center">
-                <span>Cotabato - Cotabato</span>
-              </div>
-              <div className="col-2 d-flex align-items-center">
-                <span>Economy Plus</span>
-              </div>
-            </div>
-            </div>
+            <div className="return-title ps-4">Returning now:</div>
+            <div className="col-12"></div>
           </div>
         </div>
       </div>
