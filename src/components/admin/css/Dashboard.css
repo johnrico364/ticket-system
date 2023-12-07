@@ -7,13 +7,9 @@
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-.depart-now-container{
-  height: 500px;
+.depart-now-container, .returning-now-container{
+  height: 450px;
   margin-top: 20px
-}
-.returning-now-container{
-  height: 500px;
-  margin-top: 6vh;
 }
 .depart-title{
   font-size:  16px;
