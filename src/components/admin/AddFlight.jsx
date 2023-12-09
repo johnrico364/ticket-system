@@ -1,5 +1,8 @@
+import axios from "axios";
 import "./css/AddFlight.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 export const AddFlight = () => {
   const navigate = useNavigate();
@@ -82,14 +85,127 @@ export const AddFlight = () => {
 };
 
 export const AddFlightDestination = () => {
+  const navigate = useNavigate();
+
+  const [dfrom, setDfrom] = useState("");
+  const [dto, setDto] = useState("");
+  const [dprice, setDprice] = useState(0);
+  const [dseats, setDseats] = useState(0);
+
+  const addFlightAPI = async (newPost) => {
+    try {
+      await axios.post(
+        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/add-flight",
+        newPost
+      );
+      return true;
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
+  const handleSubmit = async () => {
+    const data = {
+      dfrom: dfrom,
+      dto: dto,
+      price: parseInt(dprice),
+      seats: parseInt(dseats),
+    };
+    const status = await addFlightAPI(data);
+    status && navigate("/admin/flight");
+  };
   return (
     <div className="container-fluid">
       <div className="destination-background">
         <div className="row justify-content-center ">
-          <div className="col-md-8 p-0 border">
-            <div className="destination-form-container border">
-              <div className="row">
-                
+          <div className="col-md-8">
+            <div className="row destination-form-container align-items-center">
+              <div className="col-12">
+                <div className="row mb-3 px-3">
+                  <div className="add-flight">Add Flight</div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col-md-6 px-4">
+                    <select
+                      className="w-100 add-input input-destination"
+                      onChange={(e) => setDfrom(e.target.value)}
+                    >
+                      <option disabled selected>
+                        From
+                      </option>
+                      <option>Baguio</option>
+                      <option>Boracay</option>
+                      <option>Cagayan de Oro</option>
+                      <option>Cebu</option>
+                      <option>Cotabato</option>
+                      <option>Davao</option>
+                      <option>Dumaguete</option>
+                      <option>General Santos</option>
+                      <option>Iloilo</option>
+                      <option>Kalibo</option>
+                      <option>Manila</option>
+                      <option>Masbate</option>
+                      <option>Palawan</option>
+                      <option>Tacloban</option>
+                      <option>Zamboanga</option>
+                    </select>
+                  </div>
+                  <div className="col-md-6 px-4">
+                    <select
+                      className="w-100 add-input input-destination"
+                      onChange={(e) => setDto(e.target.value)}
+                    >
+                      <option disabled selected>
+                        To
+                      </option>
+                      <option>Baguio</option>
+                      <option>Boracay</option>
+                      <option>Cagayan de Oro</option>
+                      <option>Cebu</option>
+                      <option>Cotabato</option>
+                      <option>Davao</option>
+                      <option>Dumaguete</option>
+                      <option>General Santos</option>
+                      <option>Iloilo</option>
+                      <option>Kalibo</option>
+                      <option>Manila</option>
+                      <option>Masbate</option>
+                      <option>Palawan</option>
+                      <option>Tacloban</option>
+                      <option>Zamboanga</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col px-4">
+                    <input
+                      type="number"
+                      className="w-100 input-destination"
+                      placeholder="Price:"
+                      onChange={(e) => setDprice(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col px-4">
+                    <input
+                      type="number"
+                      className="w-100 input-destination"
+                      placeholder="Seats:"
+                      onChange={(e) => setDseats(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-12 px-4">
+                    <button className="add-flight-btn" onClick={handleSubmit}>
+                      Add Flight
+                    </button>
+                    <div className="mt-3 text-end">
+                      <Link to={"/admin/flight"}>Back to Add Flight</Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

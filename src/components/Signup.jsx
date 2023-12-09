@@ -68,7 +68,6 @@ export let Signup = () => {
           <div className=" row p-3">
             <div className="text-logo mt-3 mx-3">E-YORD AIRLINE</div>
             <div className="text-logo-2 mx-3">Fly with the friendly skies</div>
-            <div>{userdata?.USER_NAME}</div>
           </div>
 
           <div className="form-container row m-5">
@@ -77,7 +76,7 @@ export let Signup = () => {
               <div className="col-6">
                 <input
                   type="text"
-                  class="input_Container form-control"
+                  className="input_Container form-control"
                   placeholder="First name"
                   onChange={(e) => setFirstname(e.target.value)}
                 />
@@ -85,7 +84,7 @@ export let Signup = () => {
               <div class="col-6">
                 <input
                   type="text"
-                  class="input_Container form-control"
+                  className="input_Container form-control"
                   placeholder="Last name"
                   onChange={(e) => setLastname(e.target.value)}
                 />
@@ -95,14 +94,14 @@ export let Signup = () => {
               <div class="col">
                 <input
                   type="text"
-                  class="input_Container form-control"
+                  className="input_Container form-control"
                   placeholder="Username"
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
             </div>
             <div className="row">
-              <div class="col">
+              <div className="col">
                 <input
                   type="password"
                   class="input_Container form-control"
