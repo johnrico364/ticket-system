@@ -45,7 +45,7 @@ export const List = () => {
                 <div className="row mx-1 justify-content-center">
                   {data?.data?.map((ticket) => {
                     return (
-                      <div className="col-lg-5 mt-3 me-3 ticket-values-container">
+                      <div className="col-lg-5 mt-3 me-3 ticket-values-container" onClick={() => handleUpdate(ticket)}>
                         <div className="row">
                           <div className="col-8">
                             <div className="row mt-2">

@@ -1,4 +1,4 @@
- import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ export const Admin = () => {
   const checkUser = sessionStorage.getItem("user");
   const navigate = useNavigate();
 
-  const {setUserdata} = useContext(AppContext);
+  const { setUserdata } = useContext(AppContext);
 
   const checkAdminAPI = async () => {
     try {
@@ -20,9 +20,7 @@ export const Admin = () => {
       }
       setUserdata(data.items[0]);
       return data.items[0];
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const data = useQuery({
@@ -38,13 +36,24 @@ export const Admin = () => {
           <div className="nav-logo-2 mx-2">Fly with the friendly skies</div>
         </li>
         <li className="nav-item mx-1">
-          <Link className="navigation-links nav-link" to={"list"}>List</Link>
+          <Link className="navigation-links nav-link" to={"list"}>
+            To Confirm
+          </Link>
         </li>
         <li className="nav-item mx-1">
-          <Link className="navigation-links nav-link" to={"dashboard"}>Dashboard</Link>
+          <Link className="navigation-links nav-link" to={"all-ticket"}>
+            All Ticket
+          </Link>
         </li>
         <li className="nav-item mx-1">
-          <Link className="navigation-links nav-link" to={"flight"}>Add Flight</Link>
+          <Link className="navigation-links nav-link" to={"dashboard"}>
+            Dashboard
+          </Link>
+        </li>
+        <li className="nav-item mx-1">
+          <Link className="navigation-links nav-link" to={"flight"}>
+            Add Flight
+          </Link>
         </li>
       </ul>
       <Outlet />

@@ -7,12 +7,51 @@
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-.owner-information{
-  height: 80vh;
-  background-color: #1359A1;
-  color: white;
+.update-ticket{
+  margin-top: 10vh;
+  height: 320px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
 }
-.return-btn{
-  font-size: 30px;
+.ticket-update-logo {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #1359A1;
+}
+.ticket-update-logo-2 {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: #1359A1;
+}
+.ticket-update-type{
+  font-size: 18px;
+}
+.ticket-update-label{
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.802);
+}
+.ticket-update-value{
+  font-size: 15px;
+  font-weight: bold;
+}
+.ticket-update-picture{
+  border-radius: 0 8px 8px 0;
+  background-image: url("../../photos/airplane.jpg");
+  background-size: cover;
+  height: 320px;
+}
+.return-update-btn{
+  font-size: 40px;
+  color: #1359A1;
   cursor: pointer;
+}
+.update-btns{
+  height: 40px;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  background-color: #1359A1;
+  letter-spacing: 1.5px;
+  font-size: 14px;
 }
