@@ -7,3 +7,8 @@
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+.ticket-values-container-confirm{
+  height: 270px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
+}

@@ -7,6 +7,33 @@ import { useState } from "react";
 export const AddFlight = () => {
   const navigate = useNavigate();
 
+  const getDestinationAPI = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/add-flight"
+      );
+      return data.items;
+    } catch (err) {}
+  };
+  const deleteDestinationAPI = async (id) => {
+    try {
+      await axios.delete(
+        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/add-flight/${id}`
+      );
+      return true;
+    } catch (err) {}
+  };
+
+  const handleDelete = async (id) => {
+    const status = await deleteDestinationAPI(id);
+    status && data.refetch();
+  };
+
+  const data = useQuery({
+    queryKey: ["destinationAPI"],
+    queryFn: getDestinationAPI,
+  });
+
   return (
     <div className="container-fluid">
       <div className="row destination-background">
@@ -31,46 +58,35 @@ export const AddFlight = () => {
               <div className="col-3 d-flex align-items-center justify-content-end "></div>
             </div>
             {/* Map here */}
-            <div className="row destination-value blue-color">
-              <div className="col-1 d-flex align-items-center ">
-                <i class="bi bi-airplane-fill"></i>
-              </div>
-              <div className="col-2 d-flex align-items-center ">
-                <span>From</span>
-              </div>
-              <div className="col-2 d-flex align-items-center ">
-                <span>To</span>
-              </div>
-              <div className="col-2 d-flex align-items-center">
-                <span>Seats</span>
-              </div>
-              <div className="col-2 d-flex align-items-center text-black">
-                <span>Price</span>
-              </div>
-              <div className="col-3 d-flex align-items-center justify-content-end ">
-                <button className="delete-btn">Delete</button>
-              </div>
-            </div>
-            <div className="row destination-value blue-color">
-              <div className="col-1 d-flex align-items-center ">
-                <i class="bi bi-airplane-fill"></i>
-              </div>
-              <div className="col-2 d-flex align-items-center ">
-                <span>From</span>
-              </div>
-              <div className="col-2 d-flex align-items-center ">
-                <span>To</span>
-              </div>
-              <div className="col-2 d-flex align-items-center">
-                <span>Seats</span>
-              </div>
-              <div className="col-2 d-flex align-items-center text-black">
-                <span>Price</span>
-              </div>
-              <div className="col-3 d-flex align-items-center justify-content-end ">
-                <button className="delete-btn">Delete</button>
-              </div>
-            </div>
+            {data?.data?.map((destination) => {
+              return (
+                <div className="row destination-value blue-color">
+                  <div className="col-1 d-flex align-items-center ">
+                    <i class="bi bi-airplane-fill"></i>
+                  </div>
+                  <div className="col-2 d-flex align-items-center ">
+                    <span>{destination.d_from}</span>
+                  </div>
+                  <div className="col-2 d-flex align-items-center ">
+                    <span>{destination.d_to}</span>
+                  </div>
+                  <div className="col-2 d-flex align-items-center">
+                    <span>{destination.seats}</span>
+                  </div>
+                  <div className="col-2 d-flex align-items-center text-black">
+                    <span>₱ {destination.price}</span>
+                  </div>
+                  <div className="col-3 d-flex align-items-center justify-content-end ">
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(destination.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <div className="pe-2 pt-1 text-end blue-color">
             <i
@@ -89,8 +105,9 @@ export const AddFlightDestination = () => {
 
   const [dfrom, setDfrom] = useState("");
   const [dto, setDto] = useState("");
-  const [dprice, setDprice] = useState(0);
-  const [dseats, setDseats] = useState(0);
+  const [dprice, setDprice] = useState(null);
+  const [dseats, setDseats] = useState(null);
+  const [response, setResponse] = useState("");
 
   const addFlightAPI = async (newPost) => {
     try {
@@ -100,7 +117,8 @@ export const AddFlightDestination = () => {
       );
       return true;
     } catch (err) {
-      console.log(err)
+      setResponse(err.response.data.message);
+      return false;
     }
   };
 
@@ -186,7 +204,7 @@ export const AddFlightDestination = () => {
                     />
                   </div>
                 </div>
-                <div className="row mb-3">
+                <div className="row ">
                   <div className="col px-4">
                     <input
                       type="number"
@@ -195,6 +213,9 @@ export const AddFlightDestination = () => {
                       onChange={(e) => setDseats(e.target.value)}
                     />
                   </div>
+                </div>
+                <div className="row mb-3 px-3 pt-2">
+                  <div className="text-danger">{response}</div>
                 </div>
                 <div className="row">
                   <div className="col-12 px-4">

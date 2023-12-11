@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { AppContext } from "../../App";
+import { Nav } from "react-bootstrap";
 
 export const Admin = () => {
   const checkUser = sessionStorage.getItem("user");
@@ -23,6 +24,11 @@ export const Admin = () => {
     } catch (err) {}
   };
 
+  const handleSignout = () =>{
+    sessionStorage.clear();
+    navigate("/");
+  }
+
   const data = useQuery({
     queryKey: ["admin"],
     queryFn: checkAdminAPI,
@@ -42,7 +48,7 @@ export const Admin = () => {
         </li>
         <li className="nav-item mx-1">
           <Link className="navigation-links nav-link" to={"all-ticket"}>
-            All Ticket
+            Confirmed
           </Link>
         </li>
         <li className="nav-item mx-1">
@@ -54,6 +60,11 @@ export const Admin = () => {
           <Link className="navigation-links nav-link" to={"flight"}>
             Add Flight
           </Link>
+        </li>
+        <li className="nav-item mx-1">
+          <Nav.Link className="navigation-links nav-link" onClick={handleSignout}>
+            Sign Out
+          </Nav.Link>
         </li>
       </ul>
       <Outlet />
