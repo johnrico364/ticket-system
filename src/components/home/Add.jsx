@@ -100,6 +100,17 @@ export let Add = () => {
   };
 
   const handleBook = async () => {
+    const [Dday, Dmonth, Dyear] = depart.split("-");
+    const [Rday, Rmonth, Ryear] = returned.split("-");
+
+    const reformattedDepartDate = `${Dyear}-${Dmonth}-${Dday}`;
+    const reformattedReturnDate = `${Ryear}-${Rmonth}-${Rday}`;
+
+    if (returned && depart && new Date(reformattedReturnDate) < new Date(reformattedDepartDate)) {
+      setResponse("Return date cannot be before the departure date");
+      return;
+    }
+
     const data = {
       createdBy: userdata.id,
       ticketFrom: origin,
@@ -117,6 +128,7 @@ export let Add = () => {
     queryKey: ["session"],
     queryFn: sessionAPI,
   });
+
   return (
     <div>
       <div className="container">

@@ -43,12 +43,12 @@ export let Home = () => {
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls="basic-navbar-nav"
-              style={{ backgroundColor: "#EAEAEA" }}
+              className="navigation-colapse"
             />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav>
+            <Navbar.Collapse>
+              <Nav className="w-50">
                 <Link className="navigation-links nav-link" to="add">
-                  Book
+                  Book Flight
                 </Link>
                 <Link
                   className="navigation-links nav-link"
@@ -60,10 +60,10 @@ export let Home = () => {
                   Explore
                 </Link>
                 <Link className="navigation-links nav-link" to="aboutus">
-                  About
+                  About Us
                 </Link>
               </Nav>
-              <Nav className="w-100 justify-content-end">
+              <Nav className="w-50 justify-content-end">
                 <Nav.Link onClick={handleSignout} className="navigation-links signout-btn d-flex align-items-center ">
                   <i class="bi bi-person-circle mx-1 boot-icons "></i>
                   Sign out

@@ -20,12 +20,10 @@ export let PersonalList = () => {
       setUserdata(ses.data.items[0]);
 
       const data = await axios.get(
-        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/personal/${checkUser}`
+        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/add-flight`
       );
       return data.data.items;
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const data = useQuery({
@@ -101,8 +99,51 @@ export let PersonalList = () => {
                 </div>
               )}
             </div>
-            <div className="col-12 p-0 mt-1 overflow-auto approved-ticket-container">
-              <h4>Upcoming flights</h4>
+            <div className="col-12 p-0 mt-1 ">
+              <h4 className="fw-bold">Available Flights</h4>
+              <div className="overflow-auto approved-ticket-container px-3">
+                <div className="row mb-3 destination-columns">
+                  <div className="col-1 d-flex align-items-center "></div>
+                  <div className="col-3 d-flex align-items-center">
+                    <span>From</span>
+                  </div>
+                  <div className="col-3 d-flex align-items-center ">
+                    <span>To</span>
+                  </div>
+                  <div className="col-2 d-flex align-items-center">
+                    <span>Seats</span>
+                  </div>
+                  <div className="col-2 d-flex align-items-center ">
+                    <span>Price</span>
+                  </div>
+                  <div className="col-1 d-flex align-items-center justify-content-end "></div>
+                </div>
+                {/* Map here */}
+                {data?.data?.map((destination) => {
+                  return (
+                    <div className="row destination-value blue-color">
+                      <div className="col-1 d-flex align-items-center ">
+                        <i class="bi bi-airplane-fill"></i>
+                      </div>
+                      <div className="col-3 d-flex align-items-center ">
+                        <span>{destination.d_from}</span>
+                      </div>
+                      <div className="col-3 d-flex align-items-center ">
+                        <span>{destination.d_to}</span>
+                      </div>
+                      <div className="col-2 d-flex align-items-center">
+                        <span>{destination.seats}</span>
+                      </div>
+                      <div className="col-2 d-flex align-items-center text-black">
+                        <span>₱ {destination.price}</span>
+                      </div>
+                      <div className="col-1 d-flex align-items-center justify-content-end ">
+                        
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
