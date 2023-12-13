@@ -29,7 +29,7 @@ export const TicketFrom = () => {
       <div className="row ticketfrom-background">
         <div className="col-12">
           <div className="row justify-content-center">
-            <div className="col-10 overflow-auto ticketfrom-container px-4 border">
+            <div className="col-11 overflow-auto ticketfrom-container px-4">
               <div className="row">
                 <h1 className="flight-title text-center ">TICKETS FROM:</h1>
                 <h1 className="text-center">

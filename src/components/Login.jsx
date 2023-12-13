@@ -41,7 +41,7 @@ export let Login = () => {
     }
     const getdata = await loginAPI();
 
-    const user = sessionStorage.setItem("user", getdata.USER_NAME);
+    const user = sessionStorage.setItem("user", getdata.ID);
     if (getdata.STATUS === "admin") {
       navigate("/admin/list");
     } else if (getdata.USER_NAME === username) {

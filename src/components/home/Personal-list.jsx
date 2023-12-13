@@ -4,11 +4,12 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { computeHeadingLevel } from "@testing-library/react";
 
 export let PersonalList = () => {
   const navigate = useNavigate();
   const { userdata, setUserdata } = useContext(AppContext);
-  const checkUser = sessionStorage.getItem("user");
+  let checkUser = sessionStorage.getItem("user");
 
   const [editprofile, setEditprofile] = useState(false);
 
@@ -26,6 +27,13 @@ export let PersonalList = () => {
     } catch (err) {}
   };
 
+  const handleUpdate = () => {
+    const data = {
+      fname : "",
+      lname : "",
+      username : ""
+    }
+  };
   const data = useQuery({
     queryKey: ["personal ticket"],
     queryFn: getcreateTicketAPI,
@@ -39,15 +47,15 @@ export let PersonalList = () => {
             <div className="col-12 me-2 text-center profile-container">
               <i class="profile-pic bi bi-person-circle"></i>
               <div className="profile-name">
-                {userdata.first_name} {userdata.last_name}
+                {userdata?.first_name} {userdata.last_name}
               </div>
-              <div className="profile-details mt-1">{userdata.user_name}</div>
-              <div className="profile-details mt-3">{userdata.id}</div>
+              <div className="profile-details mt-1">{userdata?.user_name}</div>
+              <div className="profile-details mt-3">{userdata?.id}</div>
               <div
                 className="profile-details edit-link mt-5"
                 onClick={() => setEditprofile(!editprofile)}
               >
-                Edit
+                {editprofile? "Cancel" : "Edit"}
               </div>
             </div>
           </div>
@@ -84,13 +92,15 @@ export let PersonalList = () => {
                           className="input-container form-control "
                           type="text"
                           placeholder="Email:"
-                          defaultValue={userdata.user_name}
                         />
                       </div>
                     </div>
                     <div className="row mt-2">
                       <div className="col">
-                        <button className="login-btn w-100 btn btn-primary">
+                        <button
+                          className="login-btn w-100 btn btn-primary"
+                          onClick={handleUpdate}
+                        >
                           Update
                         </button>
                       </div>
@@ -137,9 +147,7 @@ export let PersonalList = () => {
                       <div className="col-2 d-flex align-items-center text-black">
                         <span>₱ {destination.price}</span>
                       </div>
-                      <div className="col-1 d-flex align-items-center justify-content-end ">
-                        
-                      </div>
+                      <div className="col-1 d-flex align-items-center justify-content-end "></div>
                     </div>
                   );
                 })}

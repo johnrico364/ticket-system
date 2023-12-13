@@ -54,7 +54,7 @@ export let Home = () => {
                   className="navigation-links nav-link"
                   to="profile"
                 >
-                  Profile
+                  Profile & Flights
                 </Link>
                 <Link className="navigation-links nav-link" to="explore">
                   Explore
