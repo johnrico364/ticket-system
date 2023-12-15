@@ -22,21 +22,63 @@ export const Dashboard = () => {
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/dashboard/depart/${dateString}`
       );
       setDepart(departNow.data.items);
+
       const returnNow = await axios.get(
         `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/dashboard/return/${dateString}`
       );
       setReturning(returnNow.data.items);
+
+      const dashboardData = await axios.get(``);
     } catch (error) {}
   };
 
   const data = useQuery({
     queryKey: ["depart", "return"],
     queryFn: departReturnAPI,
+    refetchInterval : 2000
   });
   return (
     <div className="container-fluid">
       <div className="row justify-content-center dashboard-container overflow-auto">
         <div className="col-12 ">
+          <div className="row mt-3 data-dashboard">
+            <div className="col-3 ps-3 px-2">
+              <div className="total-sales data-height text-center">
+                <h4>
+                  <span>Total Sales</span>
+                  <i class="bi bi-cash-coin data-icons px-2"></i>
+                </h4>
+                <div className="display-2 mt-4">1</div>
+              </div>
+            </div>
+            <div className="col-3 px-2">
+              <div className="total-users data-height text-center">
+                <h4>
+                  <span>Total Users</span>
+                  <i class="bi bi-people-fill data-icons px-2"></i>
+                </h4>
+                <div className="display-2 mt-4">1</div>
+              </div>
+            </div>
+            <div className="col-3 px-2">
+              <div className="total-flights data-height text-center">
+                <h4>
+                  <span>Total Flight Destination</span>
+                  <i class="bi bi-airplane-fill data-icons px-2"></i>
+                </h4>
+                <div className="display-2 mt-4">1</div>
+              </div>
+            </div>
+            <div className="col-3 px-2 pe-3">
+              <div className="total-approved data-height text-center">
+                <h4>
+                  <span>Total Ticket Apporoved</span>
+                  <i class="bi bi-ticket-perforated-fill data-icons px-2"></i>
+                </h4>
+                <div className="display-2 mt-4">1</div>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="depart-title ps-4">Departing now:</div>
             <div className="border mt-2"></div>
@@ -80,21 +122,15 @@ export const Dashboard = () => {
                           <div className="col-5 mt-4"></div>
                           <div className="col-3 mt-4">
                             <div className="ticket-label">Departure</div>
-                            <div className="ticket-value">
-                              {ticket.depart}
-                            </div>
+                            <div className="ticket-value">{ticket.depart}</div>
                           </div>
                           <div className="col-3 mt-4">
                             <div className="ticket-label">Return</div>
-                            <div className="ticket-value">
-                              {ticket.return}
-                            </div>
+                            <div className="ticket-value">{ticket.return}</div>
                           </div>
                           <div className="col-6 mt-4">
                             <div className="ticket-label">Price</div>
-                            <div className="ticket-value">
-                              ₱ {ticket.price}
-                            </div>
+                            <div className="ticket-value">₱ {ticket.price}</div>
                           </div>
                         </div>
                       </div>
@@ -148,21 +184,15 @@ export const Dashboard = () => {
                           <div className="col-5 mt-4"></div>
                           <div className="col-3 mt-4">
                             <div className="ticket-label">Departure</div>
-                            <div className="ticket-value">
-                              {ticket.depart}
-                            </div>
+                            <div className="ticket-value">{ticket.depart}</div>
                           </div>
                           <div className="col-3 mt-4">
                             <div className="ticket-label">Return</div>
-                            <div className="ticket-value">
-                              {ticket.return}
-                            </div>
+                            <div className="ticket-value">{ticket.return}</div>
                           </div>
                           <div className="col-6 mt-4">
                             <div className="ticket-label">Price</div>
-                            <div className="ticket-value">
-                              ₱ {ticket.price}
-                            </div>
+                            <div className="ticket-value">₱ {ticket.price}</div>
                           </div>
                         </div>
                       </div>
