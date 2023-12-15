@@ -12,6 +12,11 @@ export let PersonalList = () => {
   let checkUser = sessionStorage.getItem("user");
 
   const [editprofile, setEditprofile] = useState(false);
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [username, setUsername] = useState("");
+
+  const [response, setResponse] = useState("");
 
   const getcreateTicketAPI = async () => {
     try {
@@ -26,6 +31,29 @@ export let PersonalList = () => {
       return data.data.items;
     } catch (err) {}
   };
+  const updateUserAPI = async (newPost) => {
+    try {
+      await axios.put(
+        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/profile/${userdata.id}`,
+        newPost
+      );
+      return true;
+    } catch (err) {
+      setResponse(err.response.data.message);
+    }
+  };
+
+  const handleUpdate = async () => {
+    const update = {
+      fname: fname === "" ? userdata.first_name : fname,
+      lname: lname === "" ? userdata.last_name : lname,
+      username: username === "" ? userdata.user_name : username,
+    };
+    console.log(update);
+    const status = await updateUserAPI(update);
+
+    status && setEditprofile(!editprofile);
+  };
 
   const handleUpdate = () => {
     const data = {
@@ -37,8 +65,8 @@ export let PersonalList = () => {
   const data = useQuery({
     queryKey: ["personal ticket"],
     queryFn: getcreateTicketAPI,
+    refetchInterval: 2000,
   });
-
   return (
     <div className="container-fluid ">
       <div className="row px-5 form-background justify-content-center">
@@ -55,7 +83,7 @@ export let PersonalList = () => {
                 className="profile-details edit-link mt-5"
                 onClick={() => setEditprofile(!editprofile)}
               >
-                {editprofile? "Cancel" : "Edit"}
+                {editprofile ? "Cancel" : "Edit"}
               </div>
             </div>
           </div>
@@ -72,7 +100,8 @@ export let PersonalList = () => {
                           className="input-container form-control "
                           type="text"
                           placeholder="Firstname:"
-                          defaultValue={userdata.first_name}
+                          defaultValue={userdata?.first_name}
+                          onChange={(e) => setFname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -82,7 +111,8 @@ export let PersonalList = () => {
                           className="input-container form-control "
                           type="text"
                           placeholder="Lastname:"
-                          defaultValue={userdata.last_name}
+                          defaultValue={userdata?.last_name}
+                          onChange={(e) => setLname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -92,8 +122,12 @@ export let PersonalList = () => {
                           className="input-container form-control "
                           type="text"
                           placeholder="Email:"
+                          defaultValue={userdata.user_name}
                         />
                       </div>
+                    </div>
+                    <div className="row">
+                      <div className="error-response">{response}</div>
                     </div>
                     <div className="row mt-2">
                       <div className="col">

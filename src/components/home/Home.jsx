@@ -46,7 +46,7 @@ export let Home = () => {
               className="navigation-colapse"
             />
             <Navbar.Collapse>
-              <Nav className="w-50">
+              <Nav className="w-75">
                 <Link className="navigation-links nav-link" to="add">
                   Book Flight
                 </Link>
@@ -54,7 +54,7 @@ export let Home = () => {
                   className="navigation-links nav-link"
                   to="profile"
                 >
-                  Profile & Flights
+                  Profile & Destination
                 </Link>
                 <Link className="navigation-links nav-link" to="explore">
                   Explore
@@ -63,7 +63,7 @@ export let Home = () => {
                   About Us
                 </Link>
               </Nav>
-              <Nav className="w-50 justify-content-end">
+              <Nav className="w-25 justify-content-end">
                 <Nav.Link onClick={handleSignout} className="navigation-links signout-btn d-flex align-items-center ">
                   <i class="bi bi-person-circle mx-1 boot-icons "></i>
                   Sign out

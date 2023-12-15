@@ -7,8 +7,42 @@
   background-color: white;
   animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+.data-dashboard{
+  height: 200px;
+}
+.data-icons{
+  font-size: 25px;
+}
+.data-height{
+  height: 190px;
+}
+.total-sales{
+  background-color: rgba(0, 128, 0, 0.842);
+  color: white;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+.total-users{
+  background-color: rgba(17, 123, 243, 0.836);
+  color: white;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+.total-flights{
+  background-color: rgba(255, 68, 0, 0.801);
+  color: white;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+.total-approved{
+  background-color: rgba(148, 185, 12, 0.801);
+  color: white;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+
 .depart-now-container, .returning-now-container{
-  height: 450px;
+  height: 400px;
   margin-top: 20px
 }
 .depart-title{

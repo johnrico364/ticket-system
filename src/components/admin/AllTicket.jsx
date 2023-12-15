@@ -5,11 +5,23 @@ import { useQuery } from "@tanstack/react-query";
 export const AllTicket = () => {
   const getApprovedTicket = async () => {
     try {
-      const {data}  = await axios.get(
+      const { data } = await axios.get(
         "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/approved"
       );
-      return data.items
+      return data.items;
     } catch (err) {}
+  };
+  const deleteTicketAPI = async (ticketId) => {
+    try {
+      await axios.delete(
+        `https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/to-confirm/update/${ticketId}`
+      );
+    } catch (err) {}
+  };
+
+  const handleDelete = async (id) => {
+    await deleteTicketAPI(id);
+    data.refetch();
   };
 
   const data = useQuery({
@@ -89,7 +101,14 @@ export const AllTicket = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="col-4 ticket-picture border"></div>
+                          <div className="col-4 ticket-picture d-flex justify-content-center align-items-end ">
+                            <button
+                              className="btn-delete-confirm mb-2"
+                              onClick={() => handleDelete(ticket.ticket_id)}
+                            >
+                              Delete
+                            </button>
+                          </div>
                         </div>
                       </div>
                     );

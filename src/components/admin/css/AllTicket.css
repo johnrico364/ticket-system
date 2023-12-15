@@ -12,3 +12,11 @@
   border-radius: 8px;
   box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.555);
 }
+.btn-delete-confirm{
+  height: 30px;
+  width: 50%;
+  background-color: #135aa1cc;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+}
