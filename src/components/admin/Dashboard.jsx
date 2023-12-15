@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 export const Dashboard = () => {
   const [depart, setDepart] = useState([]);
   const [returning, setReturning] = useState([]);
+  const [dashboardData, setDashboardData] = useState({});
   const today = new Date();
 
   const departReturnAPI = async () => {
@@ -28,14 +29,19 @@ export const Dashboard = () => {
       );
       setReturning(returnNow.data.items);
 
-      const dashboardData = await axios.get(``);
+      const dashboard_Data = await axios.get(
+        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/ticket/dashboard/data"
+      );
+      setDashboardData(dashboard_Data.data);
+      console.log(dashboardData);
+      
     } catch (error) {}
   };
 
   const data = useQuery({
     queryKey: ["depart", "return"],
     queryFn: departReturnAPI,
-    refetchInterval : 2000
+    refetchInterval: 2000,
   });
   return (
     <div className="container-fluid">
@@ -43,39 +49,39 @@ export const Dashboard = () => {
         <div className="col-12 ">
           <div className="row mt-3 data-dashboard">
             <div className="col-3 ps-3 px-2">
-              <div className="total-sales data-height text-center">
+              <div className="total-sales data-height text-center pt-2">
                 <h4>
                   <span>Total Sales</span>
                   <i class="bi bi-cash-coin data-icons px-2"></i>
                 </h4>
-                <div className="display-2 mt-4">1</div>
+                <div className="display-3 mt-4">₱ {dashboardData.total_sales}</div>
               </div>
             </div>
             <div className="col-3 px-2">
-              <div className="total-users data-height text-center">
+              <div className="total-users data-height text-center pt-2">
                 <h4>
                   <span>Total Users</span>
                   <i class="bi bi-people-fill data-icons px-2"></i>
                 </h4>
-                <div className="display-2 mt-4">1</div>
+                <div className="display-3 mt-4">{dashboardData.total_users}</div>
               </div>
             </div>
             <div className="col-3 px-2">
-              <div className="total-flights data-height text-center">
+              <div className="total-flights data-height text-center pt-2">
                 <h4>
-                  <span>Total Flight Destination</span>
+                  <span>Total Flights</span>
                   <i class="bi bi-airplane-fill data-icons px-2"></i>
                 </h4>
-                <div className="display-2 mt-4">1</div>
+                <div className="display-3 mt-4">{dashboardData.total_flights}</div>
               </div>
             </div>
             <div className="col-3 px-2 pe-3">
-              <div className="total-approved data-height text-center">
+              <div className="total-approved data-height text-center pt-2">
                 <h4>
-                  <span>Total Ticket Apporoved</span>
+                  <span>Total Apporoved</span>
                   <i class="bi bi-ticket-perforated-fill data-icons px-2"></i>
                 </h4>
-                <div className="display-2 mt-4">1</div>
+                <div className="display-3 mt-4">{dashboardData.total_approved}</div>
               </div>
             </div>
           </div>

@@ -55,13 +55,6 @@ export let PersonalList = () => {
     status && setEditprofile(!editprofile);
   };
 
-  const handleUpdate = () => {
-    const data = {
-      fname : "",
-      lname : "",
-      username : ""
-    }
-  };
   const data = useQuery({
     queryKey: ["personal ticket"],
     queryFn: getcreateTicketAPI,
