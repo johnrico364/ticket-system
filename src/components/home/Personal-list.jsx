@@ -40,6 +40,7 @@ export let PersonalList = () => {
       return true;
     } catch (err) {
       setResponse(err.response.data.message);
+      setTimeout(() => setResponse(""), 3000);
     }
   };
 
@@ -116,6 +117,7 @@ export let PersonalList = () => {
                           type="text"
                           placeholder="Email:"
                           defaultValue={userdata.user_name}
+                          onChange={(e)=> setUsername(e.target.value)}
                         />
                       </div>
                     </div>

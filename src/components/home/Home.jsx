@@ -30,7 +30,7 @@ export let Home = () => {
             <div className="col-6 text-end mt-2">
               <i class="boot-icons bi bi-facebook mx-2"></i>
               <i class="boot-icons bi bi-instagram mx-2"></i>
-              <i class="boot-icons bi bi-github mx-2"></i>
+              <Link class="boot-icons bi bi-github mx-2" to={"https://github.com/johnrico364/ticket-system.git"}></Link>
             </div>
           </div>
           <div className="border"></div>
