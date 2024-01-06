@@ -27,7 +27,7 @@ export let Signup = () => {
   let signupAPI = async (newPost) => {
     try {
       await axios.post(
-        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/signup",
+        "https://apex.oracle.com/pls/apex/jao_workspace/ticket-system/account/signup",
         newPost
       );
 
