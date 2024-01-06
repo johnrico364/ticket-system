@@ -69,7 +69,7 @@ export let PersonalList = () => {
             <div className="col-12 me-2 text-center profile-container">
               <i class="profile-pic bi bi-person-circle"></i>
               <div className="profile-name">
-                {userdata?.first_name} {userdata.last_name}
+                {userdata?.first_name} {userdata?.last_name}
               </div>
               <div className="profile-details mt-1">{userdata?.user_name}</div>
               <div className="profile-details mt-3">{userdata?.id}</div>
