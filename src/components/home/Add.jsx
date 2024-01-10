@@ -43,6 +43,7 @@ export let Add = () => {
   };
 
   const handleDepart = (e) => {
+    setDepart("");
     let inputDate = e.target.value;
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -58,6 +59,10 @@ export let Add = () => {
     }
     if (year == yyyy && month < mm) {
       setResponse("Invalid month");
+      return;
+    }
+    if (month == mm && day == dd) {
+      setResponse("You cant book a flight now");
       return;
     }
     if (month == mm && day <= dd) {
@@ -71,6 +76,7 @@ export let Add = () => {
     setDepart(formattedDate);
   };
   const handleReturn = (e) => {
+    setReturned("");
     let inputDate = e.target.value;
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -92,6 +98,7 @@ export let Add = () => {
       setResponse("Invalid day");
       return;
     }
+
     if (month == mm && day >= dd) {
       setResponse("");
     }
@@ -106,7 +113,11 @@ export let Add = () => {
     const reformattedDepartDate = `${Dyear}-${Dmonth}-${Dday}`;
     const reformattedReturnDate = `${Ryear}-${Rmonth}-${Rday}`;
 
-    if (returned && depart && new Date(reformattedReturnDate) < new Date(reformattedDepartDate)) {
+    if (
+      returned &&
+      depart &&
+      new Date(reformattedReturnDate) < new Date(reformattedDepartDate)
+    ) {
       setResponse("Return date cannot be before the departure date");
       return;
     }
@@ -218,7 +229,7 @@ export let Add = () => {
               </div>
 
               <button onClick={handleBook} className="col-md-1 book-btn ms-2">
-                Search Flight
+                Booked Flight
               </button>
 
               <div className="col-5 add-form-container mt-2">

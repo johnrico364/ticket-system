@@ -131,7 +131,7 @@ export const Update = () => {
                 ></i>
               </div>
               <div className="col-6 p-0 text-end">
-                <button className="update-btns me-4" onClick={handleTerminate}>Ternimate</button>
+                <button className="update-btns me-4" onClick={handleTerminate}>Terminate</button>
                 <button className="update-btns" onClick={handleApproved}>Approved</button>
               </div>
             </div>
